@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dytte8hu0a5hi"]
+
+[ext_resource type="PackedScene" uid="uid://bo8nkr2jp6l61" path="res://player.tscn" id="1_3hls8"]
+[ext_resource type="Script" uid="uid://cci8c4wre7705" path="res://scripts/level_1.gd" id="1_hn12h"]
+[ext_resource type="Script" uid="uid://cvpby655dkhu5" path="res://scripts/main_game_input_handler.gd" id="2_hbghi"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_hn12h")
+
+[node name="MainGameInputHandler" type="Node" parent="."]
+script = ExtResource("2_hbghi")
+metadata/_custom_type_script = "uid://cvpby655dkhu5"
+
+[node name="Player" parent="." instance=ExtResource("1_3hls8")]
