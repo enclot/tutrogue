@@ -10,5 +10,5 @@ func _init(_player:Player, _offset:Vector2i) -> void:
 
 func perform() -> bool:
 	print("MovementAction peform ", offset)
-	player.move(offset)
-	return true
+	return player.move(offset)
+	
