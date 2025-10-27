@@ -7,8 +7,12 @@ extends Node2D
 
 func _ready() -> void:
 	map.generate()
+	map.update_fov(player)
+	
+	player.map = map
 
 func _physics_process(_delta: float) -> void:
 	var action:Action = input_handler.get_action(player)
 	if action and action.perform():
 		print("enemy turn")
+		map.update_fov(player)

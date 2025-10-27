@@ -18,10 +18,10 @@ func _init(tile_map:TileMapLayer) -> void:
 			var tile_data = tile_map.get_cell_tile_data(grid_position)
 			if not tile_data:
 				continue
-			#var tile_size = tile_map.tile_set.tile_size
-			#var new_tile = TileState.new(grid_position, tile_size,
-										 #tile_data.get_custom_data("transparent"), tile_data.get_custom_data("walkable"))
-			var new_tile = TileState.new(tile_data.get_custom_data("walkable"))
+			var tile_size = tile_map.tile_set.tile_size
+			var new_tile = TileState.new(grid_position, tile_size,
+										 tile_data.get_custom_data("transparent"), tile_data.get_custom_data("walkable"))
+			#var new_tile = TileState.new(tile_data.get_custom_data("walkable"))
 			tile_state.append(new_tile)
 
 func is_in_bounds(coordinate: Vector2i) -> bool:
@@ -42,3 +42,7 @@ func get_tile(grid_position: Vector2i) -> TileState:
 	if tile_index == -1:
 		return null
 	return tile_state[tile_index]
+
+func get_tile_xy(x: int, y: int) -> TileState:
+	var grid_position := Vector2i(x, y)
+	return get_tile(grid_position)

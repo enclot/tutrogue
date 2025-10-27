@@ -5,9 +5,9 @@
 #func _init(_actor:Actor) -> void:
 	#actor = _actor
 
-var player:Player
+var actor:Actor
 
-func _init(_player:Player) -> void:
-	player = _player	
+func _init(_actor:Actor) -> void:
+	actor = _actor	
 
 @abstract func perform() -> bool
