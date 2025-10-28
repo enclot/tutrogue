@@ -23,4 +23,7 @@ func get_action(player:Player) -> Action:
 		elif Input.is_action_just_pressed("wait"):
 			action = WaitAction.new(player)
 			
+		elif Input.is_action_just_pressed("item_pickup"):
+			action = ItemPickupAction.new(player)
+			
 	return action

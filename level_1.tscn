@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dytte8hu0a5hi"]
+[gd_scene load_steps=11 format=4 uid="uid://dytte8hu0a5hi"]
 
 [ext_resource type="PackedScene" uid="uid://bo8nkr2jp6l61" path="res://player.tscn" id="1_3hls8"]
 [ext_resource type="Script" uid="uid://cci8c4wre7705" path="res://scripts/level_1.gd" id="1_hn12h"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cxyb3jjf3w5ca" path="res://scripts/map.gd" id="5_rka8t"]
 [ext_resource type="Script" uid="uid://b6jva7rpnvs60" path="res://scripts/field_of_view.gd" id="6_5hph3"]
 [ext_resource type="PackedScene" uid="uid://dmylkkdndpi1p" path="res://skeleton.tscn" id="7_j7kpp"]
+[ext_resource type="PackedScene" uid="uid://d32w7hqjeb4ml" path="res://healing_potion.tscn" id="8_bjebc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rka8t"]
 texture = ExtResource("2_ihfcg")
@@ -1126,5 +1127,8 @@ position = Vector2(32, 96)
 
 [node name="Skeleton2" parent="Map/Actors" instance=ExtResource("7_j7kpp")]
 position = Vector2(16, 80)
+
+[node name="HealingPotion" parent="Map/Actors" instance=ExtResource("8_bjebc")]
+position = Vector2(16, 32)
 
 [node name="VisionTiles" type="Node2D" parent="Map"]
