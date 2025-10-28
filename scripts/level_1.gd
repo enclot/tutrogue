@@ -20,4 +20,8 @@ func _physics_process(_delta: float) -> void:
 func _handle_enemy_turns() -> void:
 	var enemies = map.get_actors_in_group("enemy")
 	for enemy in enemies:
+		var stats_component:StatsComponent = enemy.get_component(StatsComponent)
+		if stats_component and not stats_component.is_alive():
+			enemy.map.unregister_blocking_position(enemy.grid_position)
+			continue
 		enemy.ai_perform()

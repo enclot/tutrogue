@@ -16,10 +16,25 @@ var entity_name:String:
 	get():
 		return entity_resource.entity_name
 
+var capabilities:Array[Component]
+
 func _ready() -> void:
-	grid_position = Vector2i(position)/tile_size
+	initialize()
 	
 	sprite_2d.texture = entity_resource.texture
+	
+func initialize()->void:
+	grid_position = Vector2i(position)/tile_size
+	var nodes = get_children()
+	for node in nodes:
+		if node is Component:
+			capabilities.append(node as Component)	
+			
+func get_component(target_class:Variant) -> Component:
+	for cap in capabilities:
+		if is_instance_of(cap, target_class):
+			return cap
+	return null
 	
 func move(offset:Vector2i) -> bool:
 	var current_tile:Vector2i = grid_position

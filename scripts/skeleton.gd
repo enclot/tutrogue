@@ -27,3 +27,7 @@ func ai_perform() -> bool:
 	
 	var move_offset:Vector2i = destination - grid_position
 	return MovementAction.new(self, move_offset).perform()
+
+func died() -> void:
+	print("%s is dead"% entity_name)
+	sprite_2d.self_modulate = Color.RED

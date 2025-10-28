@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmylkkdndpi1p"]
+[gd_scene load_steps=8 format=3 uid="uid://dmylkkdndpi1p"]
 
 [ext_resource type="PackedScene" uid="uid://erdt5y2vt48e" path="res://actor.tscn" id="1_crlql"]
 [ext_resource type="Script" uid="uid://8g0rtyujv5yf" path="res://scripts/skeleton.gd" id="2_plk42"]
 [ext_resource type="Script" uid="uid://dbi2reyfg50wr" path="res://scripts/entity_resource.gd" id="3_sv33q"]
 [ext_resource type="Texture2D" uid="uid://cp2ifs0svya8c" path="res://asset/monochrome-transparent_packed.png" id="4_uaaco"]
+[ext_resource type="Script" uid="uid://cklp3cb3vpfu6" path="res://scripts/stats_component.gd" id="5_uaaco"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ymvsc"]
 atlas = ExtResource("4_uaaco")
@@ -21,3 +22,7 @@ entity_resource = SubResource("Resource_rwpf0")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = SubResource("AtlasTexture_ymvsc")
+
+[node name="StatsComponent" type="Node" parent="." index="1"]
+script = ExtResource("5_uaaco")
+metadata/_custom_type_script = "uid://cklp3cb3vpfu6"
