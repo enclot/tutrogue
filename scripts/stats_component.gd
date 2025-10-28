@@ -1,14 +1,14 @@
 class_name StatsComponent
 extends Component
 
-#signal hp_changed(hp,max_hp)
+signal hp_changed(hp,max_hp)
 
 @export_category("Stats")
 @export var max_hp:int = 40
 @export var hp:int = 40:
 	set(value):
 		hp = clampi(value, 0, max_hp)
-		#hp_changed.emit(hp, max_hp)
+		hp_changed.emit(hp, max_hp)
 		if hp == 0:
 			_die()
 			
