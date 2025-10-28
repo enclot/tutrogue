@@ -22,3 +22,33 @@ func update_fov(player:Actor):
 func _place_tiles() -> void:
 	for tile in map_data.tile_state:
 		vision_tiles.add_child(tile)
+
+
+#シーンビューに追加されたものからgroup名を使って取得する
+func get_actors_in_group(group:String) -> Array[Actor]:
+	var nodes = get_tree().get_nodes_in_group(group)
+	var actors:Array[Actor] = []
+
+	for node in nodes:
+		if node is Actor:
+			node.map = self
+			actors.append(node)
+	return actors
+	
+#なければnull
+func get_actor_at_location(_group:String, _target_position:Vector2i) -> Actor:
+	var actors = get_actors_in_group(_group)
+	for actor:Actor in actors:
+		if actor.grid_position == _target_position:
+			return actor
+	return null
+
+
+func get_player_actor() -> Actor:
+	var nodes = get_tree().get_nodes_in_group("player")
+	if nodes:
+		return nodes[0]
+	return null
+
+func get_point_path_to(from:Vector2i, to:Vector2i) -> PackedVector2Array:
+	return map_data.pathfinder.get_point_path(from, to)

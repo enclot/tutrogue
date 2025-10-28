@@ -14,5 +14,10 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	var action:Action = input_handler.get_action(player)
 	if action and action.perform():
-		print("enemy turn")
+		_handle_enemy_turns()
 		map.update_fov(player)
+
+func _handle_enemy_turns() -> void:
+	var enemies = map.get_actors_in_group("enemy")
+	for enemy in enemies:
+		enemy.ai_perform()

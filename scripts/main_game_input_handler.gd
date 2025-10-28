@@ -17,7 +17,10 @@ func get_action(player:Player) -> Action:
 	for direction in directions:
 		if Input.is_action_just_pressed(direction):
 			var offset: Vector2i = directions[direction]
-			action = MovementAction.new(player, offset)
-			#action = BumpAction.new(actor, offset)
+			#action = MovementAction.new(player, offset)
+			action = BumpAction.new(player, offset)
+			
+		elif Input.is_action_just_pressed("wait"):
+			action = WaitAction.new(player)
 			
 	return action

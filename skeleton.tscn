@@ -15,6 +15,9 @@ entity_name = "Skeleton"
 texture = SubResource("AtlasTexture_ymvsc")
 metadata/_custom_type_script = "uid://dbi2reyfg50wr"
 
-[node name="Skeleton" instance=ExtResource("1_crlql")]
+[node name="Skeleton" groups=["enemy", "target"] instance=ExtResource("1_crlql")]
 script = ExtResource("2_plk42")
 entity_resource = SubResource("Resource_rwpf0")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_ymvsc")

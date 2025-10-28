@@ -15,7 +15,7 @@ entity_name = "Player"
 texture = SubResource("AtlasTexture_2hs0m")
 metadata/_custom_type_script = "uid://dbi2reyfg50wr"
 
-[node name="Player" instance=ExtResource("1_4flbx")]
+[node name="Player" groups=["player", "target"] instance=ExtResource("1_4flbx")]
 script = ExtResource("1_onrkg")
 entity_resource = SubResource("Resource_1jxqw")
 

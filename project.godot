@@ -23,6 +23,13 @@ window/size/window_width_override=1280
 window/size/window_height_override=1280
 window/stretch/mode="viewport"
 
+[global_group]
+
+actor=""
+target=""
+enemy=""
+player=""
+
 [input]
 
 move_up={
@@ -63,6 +70,11 @@ move_down_left={
 move_down_right={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":78,"key_label":0,"unicode":110,"location":0,"echo":false,"script":null)
+]
+}
+wait={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":46,"key_label":0,"unicode":46,"location":0,"echo":false,"script":null)
 ]
 }
 
