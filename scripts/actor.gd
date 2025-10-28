@@ -28,5 +28,7 @@ func move(offset:Vector2i) -> bool:
 	if not map.is_walkable(target_tile):
 		return false
 	
+	map.unregister_blocking_position(grid_position)
 	grid_position = target_tile
+	map.register_blocking_position(grid_position)
 	return true

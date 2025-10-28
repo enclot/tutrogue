@@ -52,3 +52,10 @@ func get_player_actor() -> Actor:
 
 func get_point_path_to(from:Vector2i, to:Vector2i) -> PackedVector2Array:
 	return map_data.pathfinder.get_point_path(from, to)
+
+
+func register_blocking_position(_position:Vector2i) -> void:
+	map_data.pathfinder.set_point_weight_scale(_position, 10.0)
+
+func unregister_blocking_position(_position:Vector2i) -> void:
+	map_data.pathfinder.set_point_weight_scale(_position, 0)
