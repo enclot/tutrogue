@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkmgp66mbpk3i"]
+
+[ext_resource type="PackedScene" uid="uid://erdt5y2vt48e" path="res://actor.tscn" id="1_nlilt"]
+[ext_resource type="Script" uid="uid://duvcrv4ec0866" path="res://scripts/tile_indicator.gd" id="2_3cq2u"]
+
+[node name="TileIndicator" instance=ExtResource("1_nlilt")]
+script = ExtResource("2_3cq2u")

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EntityResource" load_steps=4 format=3 uid="uid://kltay7mytc87"]
+
+[ext_resource type="Script" uid="uid://dbi2reyfg50wr" path="res://scripts/entity_resource.gd" id="1_r2h8x"]
+[ext_resource type="Texture2D" uid="uid://cp2ifs0svya8c" path="res://asset/monochrome-transparent_packed.png" id="2_hbdq3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0apms"]
+atlas = ExtResource("2_hbdq3")
+region = Rect2(576, 48, 16, 16)
+
+[resource]
+script = ExtResource("1_r2h8x")
+scene_path = "uid://cv143554mhg0f"
+entity_name = "Javelin"
+texture = SubResource("AtlasTexture_0apms")
+metadata/_custom_type_script = "uid://dbi2reyfg50wr"

@@ -2,6 +2,7 @@ class_name MainGameInputHandler
 extends Node
 
 const INVENTORY_UI = preload("res://inventory_ui.tscn")
+const SPECIFIABLE_POSITION_UI = preload("res://specifiable_position_ui.tscn")
 
 
 const directions={
@@ -39,11 +40,11 @@ func get_action(player:Player) -> Action:
 				var item_actor:Actor = packed_scene.instantiate()
 				item_actor.initialize()
 
-				#var specifiable_component:SpecifiableComponent = item_actor.get_component(SpecifiableComponent)
-				#if specifiable_component:
-					#var result := await _get_specifable_locations(actor, specifiable_component)
-					#if not result:
-						#return null
+				var specifiable_component:SpecifiableComponent = item_actor.get_component(SpecifiableComponent)
+				if specifiable_component:
+					var result := await _get_specifable_locations(player, specifiable_component)
+					if not result:
+						return null
 
 				return ItemUseAction.new(player, item_actor)
 			)
@@ -64,3 +65,9 @@ func _with_pause(callback: Callable) -> Variant:
 	var result = await callback.call()
 	get_tree().paused = false
 	return result
+
+func _get_specifable_locations(player:Player, specifiable:SpecifiableComponent) -> bool:
+	var specified_position_ui:SpecifiedPositionUI = SPECIFIABLE_POSITION_UI.instantiate()
+	get_parent().add_child(specified_position_ui)
+	specified_position_ui.initialize(player, specifiable)
+	return await specified_position_ui.position_selected

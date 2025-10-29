@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3ub806ynxi5l"]
+
+[ext_resource type="Script" uid="uid://q5ore822361t" path="res://scripts/specifiable_position_ui.gd" id="1_q1qis"]
+[ext_resource type="PackedScene" uid="uid://bkmgp66mbpk3i" path="res://tile_indicator.tscn" id="2_in8j6"]
+
+[node name="SpecifiablePositionUI" type="Node2D"]
+process_mode = 2
+script = ExtResource("1_q1qis")
+
+[node name="TileIndicator" parent="." instance=ExtResource("2_in8j6")]
+
+[node name="TargetPositions" type="Node2D" parent="."]
