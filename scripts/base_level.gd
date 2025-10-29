@@ -1,4 +1,4 @@
-class_name Level1
+class_name BaseLevel
 extends Node2D
 
 @onready var input_handler: MainGameInputHandler = $MainGameInputHandler
