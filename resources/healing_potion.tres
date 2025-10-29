@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EntityResource" load_steps=4 format=3 uid="uid://t44rop7m1ugf"]
+
+[ext_resource type="Script" uid="uid://dbi2reyfg50wr" path="res://scripts/entity_resource.gd" id="1_ga3l2"]
+[ext_resource type="Texture2D" uid="uid://cp2ifs0svya8c" path="res://asset/monochrome-transparent_packed.png" id="2_rmcdb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0bps"]
+atlas = ExtResource("2_rmcdb")
+region = Rect2(544, 208, 16, 16)
+
+[resource]
+script = ExtResource("1_ga3l2")
+scene_path = "uid://d32w7hqjeb4ml"
+entity_name = "Healing Potion"
+texture = SubResource("AtlasTexture_i0bps")
+metadata/_custom_type_script = "uid://dbi2reyfg50wr"

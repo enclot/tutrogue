@@ -1,20 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://d32w7hqjeb4ml"]
+[gd_scene load_steps=6 format=3 uid="uid://d32w7hqjeb4ml"]
 
 [ext_resource type="PackedScene" uid="uid://erdt5y2vt48e" path="res://actor.tscn" id="1_yggyg"]
 [ext_resource type="Script" uid="uid://djj0o1ns8yrog" path="res://scripts/healing_potion.gd" id="2_raxl3"]
-[ext_resource type="Script" uid="uid://dbi2reyfg50wr" path="res://scripts/entity_resource.gd" id="3_17exi"]
+[ext_resource type="Resource" uid="uid://t44rop7m1ugf" path="res://resources/healing_potion.tres" id="3_17exi"]
 [ext_resource type="Texture2D" uid="uid://cp2ifs0svya8c" path="res://asset/monochrome-transparent_packed.png" id="4_js6vx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i0bps"]
 atlas = ExtResource("4_js6vx")
 region = Rect2(544, 208, 16, 16)
 
-[sub_resource type="Resource" id="Resource_lked7"]
-script = ExtResource("3_17exi")
-entity_name = "Healing Potion"
-texture = SubResource("AtlasTexture_i0bps")
-metadata/_custom_type_script = "uid://dbi2reyfg50wr"
-
 [node name="HealingPotion" groups=["item"] instance=ExtResource("1_yggyg")]
 script = ExtResource("2_raxl3")
-entity_resource = SubResource("Resource_lked7")
+entity_resource = ExtResource("3_17exi")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_i0bps")

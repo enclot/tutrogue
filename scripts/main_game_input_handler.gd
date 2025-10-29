@@ -30,9 +30,23 @@ func get_action(player:Player) -> Action:
 			action = ItemPickupAction.new(player)
 			
 		elif Input.is_action_just_pressed("item_use"):
-			get_tree().paused = true
-			await _get_item("item use", player)
-			get_tree().paused = false
+			action = await _with_pause(func() -> Variant:
+				var selected_item:EntityResource = await _get_item("Item use", player)
+				if not selected_item:
+					return null
+
+				var packed_scene: PackedScene = load(selected_item.scene_path)
+				var item_actor:Actor = packed_scene.instantiate()
+				item_actor.initialize()
+
+				#var specifiable_component:SpecifiableComponent = item_actor.get_component(SpecifiableComponent)
+				#if specifiable_component:
+					#var result := await _get_specifable_locations(actor, specifiable_component)
+					#if not result:
+						#return null
+
+				return ItemUseAction.new(player, item_actor)
+			)
 			
 	return action
 
@@ -44,3 +58,9 @@ func _get_item(window_title:String, player:Player) -> EntityResource:
 	inventory_ui.build(window_title, player) #add_child()してからでないとinventory_uiの@onreadyが終わっていない
 	
 	return await inventory_ui.item_selected
+
+func _with_pause(callback: Callable) -> Variant:
+	get_tree().paused = true
+	var result = await callback.call()
+	get_tree().paused = false
+	return result
