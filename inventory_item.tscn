@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b58y3gabh2rqh"]
+
+[ext_resource type="FontFile" uid="uid://dc4tq7utawt2q" path="res://asset/Kenney Pixel.ttf" id="1_5b765"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5b765"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="InventoryItem" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("1_5b765")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5b765")
+text = "item1"

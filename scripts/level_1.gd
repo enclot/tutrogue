@@ -12,7 +12,7 @@ func _ready() -> void:
 	player.map = map
 
 func _physics_process(_delta: float) -> void:
-	var action:Action = input_handler.get_action(player)
+	var action:Action = await input_handler.get_action(player)
 	if action and action.perform():
 		_handle_enemy_turns()
 		map.update_fov(player)
