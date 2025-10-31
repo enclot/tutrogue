@@ -76,6 +76,5 @@ func load_level_actors() -> void:
 		current_level.map.actors_holder.add_child(actor_node)
 		actor_node.map = current_level.map
 		
-	# 上でPlayerは削除されているので追加したPlayerをレベルのPlayerとして取得しなおす
-	current_level.reset_player()
+
 	

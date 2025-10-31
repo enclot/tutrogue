@@ -13,7 +13,7 @@ func perform() -> bool:
 		return false
 	
 	#階段の向きと、入力の向きが違ったらキャンセル
-	if stair_node.stair != input_direction:
+	if stair_node.direction != input_direction:
 		return false
 	
 	print("direction=",input_direction)
@@ -23,5 +23,13 @@ func perform() -> bool:
 	elif input_direction == Stairs.Direction.DOWN:
 		Gameplay.instance.level2()
 	
+	# 最後に使った階段を覚えておく
+	if actor is Player:
+		actor.last_use_stairs_direction = stair_node.direction
+		actor.last_use_stairs_pair = stair_node.pair
+
 	Gameplay.instance.save_level_actors()
+	
+	
+	
 	return false

@@ -1145,4 +1145,8 @@ position = Vector2(48, 80)
 [node name="UpStairs" parent="Map/Actors" instance=ExtResource("10_15wb7")]
 position = Vector2(32, 112)
 
+[node name="UpStairs2" parent="Map/Actors" instance=ExtResource("10_15wb7")]
+position = Vector2(144, 64)
+pair = 1
+
 [node name="VisionTiles" type="Node2D" parent="Map"]
