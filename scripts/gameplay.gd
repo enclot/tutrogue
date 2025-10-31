@@ -22,13 +22,14 @@ func _on_level_added(level) -> void:
 		
 		Gameplay.instance.load_level_actors()
 
-		
-func level1():
-	SceneManager.swap_scenes("res://level_1.tscn", self, current_level)
+func shift_level(offset:int)->void:
+	var current_path = current_level.scene_file_path
+	var parts = current_path.split("_")
+	var num_part = parts[1].split(".")[0]
+	var new_number = int(num_part) + offset
+	var new_path = parts[0] + "_" + str(new_number) + ".tscn"
+	SceneManager.swap_scenes(new_path, self, current_level)
 	
-func level2():
-	SceneManager.swap_scenes("res://level_2.tscn", self, current_level)
-
 func save_level_actors() -> void:
 	var level_actor_data = LevelActorData.new()#Player以外のActorが入る
 	var actor_nodes = current_level.map.get_actors_in_group("actor")

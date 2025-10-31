@@ -16,12 +16,7 @@ func perform() -> bool:
 	if stair_node.direction != input_direction:
 		return false
 	
-	print("direction=",input_direction)
-	
-	if input_direction == Stairs.Direction.UP:
-		Gameplay.instance.level1()
-	elif input_direction == Stairs.Direction.DOWN:
-		Gameplay.instance.level2()
+	Gameplay.instance.shift_level(input_direction)
 	
 	# 最後に使った階段を覚えておく
 	if actor is Player:
