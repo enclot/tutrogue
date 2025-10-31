@@ -8,6 +8,8 @@ var map_data:MapData
 
 @onready var field_of_view: FieldOfView = $FieldOfView
 
+@onready var actors_holder: Node2D = $Actors
+
 func generate() -> void:
 	map_data = MapData.new(tile_map)
 	

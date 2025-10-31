@@ -24,6 +24,11 @@ func get_action(player:Player) -> Action:
 			#action = MovementAction.new(player, offset)
 			action = BumpAction.new(player, offset)
 			
+		elif Input.is_action_just_pressed("down_stairs"):
+			action = StairsAction.new(player, Stairs.Direction.DOWN)
+		elif Input.is_action_just_pressed("up_stairs"):
+			action = StairsAction.new(player, Stairs.Direction.UP)
+			
 		elif Input.is_action_just_pressed("wait"):
 			action = WaitAction.new(player)
 			
@@ -48,6 +53,7 @@ func get_action(player:Player) -> Action:
 
 				return ItemUseAction.new(player, item_actor)
 			)
+
 			
 	return action
 

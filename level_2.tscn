@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dm3w3qfpw54mx"]
+[gd_scene load_steps=13 format=4 uid="uid://dm3w3qfpw54mx"]
 
 [ext_resource type="Script" uid="uid://cci8c4wre7705" path="res://scripts/base_level.gd" id="1_7dov7"]
 [ext_resource type="Texture2D" uid="uid://li6jbbn60vpk" path="res://asset/colored_packed.png" id="2_ehv2h"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dmylkkdndpi1p" path="res://skeleton.tscn" id="7_s77qv"]
 [ext_resource type="PackedScene" uid="uid://d32w7hqjeb4ml" path="res://healing_potion.tscn" id="8_5hnhx"]
 [ext_resource type="PackedScene" uid="uid://cv143554mhg0f" path="res://javelin.tscn" id="9_ehv2h"]
+[ext_resource type="PackedScene" uid="uid://c02hueoagh3sb" path="res://up_stairs.tscn" id="10_15wb7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rka8t"]
 texture = ExtResource("2_ehv2h")
@@ -1140,5 +1141,8 @@ position = Vector2(144, 176)
 
 [node name="Javelin" parent="Map/Actors" instance=ExtResource("9_ehv2h")]
 position = Vector2(48, 80)
+
+[node name="UpStairs" parent="Map/Actors" instance=ExtResource("10_15wb7")]
+position = Vector2(32, 112)
 
 [node name="VisionTiles" type="Node2D" parent="Map"]

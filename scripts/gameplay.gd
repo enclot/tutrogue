@@ -1,0 +1,65 @@
+class_name Gameplay
+extends Node2D
+
+static var instance:Gameplay
+
+var current_level:BaseLevel
+
+#var player_data:PackedScene
+var level_data:LevelData #レベルのパスがキーのDictionary
+
+func _ready() -> void:
+	instance = self
+	
+	current_level = get_child(0) as BaseLevel
+	SceneManager.scene_added.connect(_on_level_added)	
+	
+	level_data = LevelData.new()
+	
+func _on_level_added(level) -> void:
+	if level is BaseLevel:
+		current_level = level
+		
+		Gameplay.instance.load_level_actors()
+
+		
+func level1():
+	SceneManager.swap_scenes("res://level_1.tscn", self, current_level)
+	
+func level2():
+	SceneManager.swap_scenes("res://level_2.tscn", self, current_level)
+
+func save_level_actors() -> void:
+	var level_actor_data = LevelActorData.new()
+	var actor_nodes = current_level.map.get_actors_in_group("actor")
+	for actor in actor_nodes:
+		var actor_scene = PackedScene.new()
+		actor_scene.pack(actor)
+		level_actor_data.actor_array.append(actor_scene)		
+	
+	level_data.levels[current_level.scene_file_path] = level_actor_data.duplicate()
+
+func load_level_actors() -> void:
+	print("load_level_actors()")
+	
+	#初めてのレベルの時は読み込まない
+	if not level_data.levels.has(current_level.scene_file_path):
+		return
+		
+	var actor_nodes =  current_level.map.get_actors_in_group("actor")
+	for actor in actor_nodes:
+		actor.queue_free()
+		if actor is Player:
+			#Playerの場合シーンツリーから削除されるのを待つ
+			await actor.tree_exited
+			
+	var level_actor_data:LevelActorData = level_data.levels[current_level.scene_file_path]  
+	for actor in level_actor_data.actor_array:
+		var actor_node:Actor = actor.instantiate()
+		actor_node.initialize()
+		current_level.map.actors_holder.add_child(actor_node)
+		actor_node.map = current_level.map
+		
+	# 上でPlayerは削除されているので追加したPlayerをレベルのPlayerとして取得しなおす
+	current_level.reset_player()
+	

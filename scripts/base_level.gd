@@ -10,6 +10,10 @@ func _ready() -> void:
 	map.update_fov(player)
 	
 	player.map = map
+	
+func reset_player() -> void:
+	player = $Map/Actors/Player
+	player.map = map
 
 func _physics_process(_delta: float) -> void:
 	var action:Action = await input_handler.get_action(player)
