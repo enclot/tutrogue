@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://cagcfc1dgeci4"]
+
+[ext_resource type="PackedScene" uid="uid://erdt5y2vt48e" path="res://actor.tscn" id="1_cfldh"]
+[ext_resource type="Script" uid="uid://dno4eltox6cap" path="res://scripts/stairs.gd" id="2_hxjfv"]
+[ext_resource type="Script" uid="uid://dbi2reyfg50wr" path="res://scripts/entity_resource.gd" id="3_gpcio"]
+[ext_resource type="Texture2D" uid="uid://li6jbbn60vpk" path="res://asset/colored_packed.png" id="4_y1ujb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfnyx"]
+atlas = ExtResource("4_y1ujb")
+region = Rect2(96, 96, 16, 16)
+
+[sub_resource type="Resource" id="Resource_a30u0"]
+script = ExtResource("3_gpcio")
+scene_path = "uid://cagcfc1dgeci4"
+entity_name = "Exit Stairs"
+texture = SubResource("AtlasTexture_yfnyx")
+metadata/_custom_type_script = "uid://dbi2reyfg50wr"
+
+[node name="ExitStairs" groups=["stairs"] instance=ExtResource("1_cfldh")]
+script = ExtResource("2_hxjfv")
+direction = 0
+entity_resource = SubResource("Resource_a30u0")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_yfnyx")

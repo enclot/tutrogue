@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://cklp3cb3vpfu6" path="res://scripts/stats_component.gd" id="5_sweqy"]
 [ext_resource type="Script" uid="uid://c0sbkh5lgpd27" path="res://scripts/inventory_component.gd" id="7_1jxqw"]
 [ext_resource type="Resource" uid="uid://t44rop7m1ugf" path="res://resources/healing_potion.tres" id="8_dw050"]
-[ext_resource type="Resource" uid="uid://kltay7mytc87" path="res://resources/javelin.tres" id="9_b26j0"]
+[ext_resource type="Resource" uid="uid://c1agfp8bl3khx" path="res://resources/one_ring.tres" id="9_b26j0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
 atlas = ExtResource("4_sweqy")
@@ -23,6 +23,8 @@ metadata/_custom_type_script = "uid://dbi2reyfg50wr"
 [node name="Player" groups=["player", "target"] instance=ExtResource("1_4flbx")]
 z_index = 1
 script = ExtResource("1_onrkg")
+last_use_stairs_direction = null
+last_use_stairs_pair = null
 entity_resource = SubResource("Resource_1jxqw")
 
 [node name="Sprite2D" parent="." index="0"]

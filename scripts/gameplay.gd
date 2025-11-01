@@ -21,6 +21,21 @@ func _on_level_added(level) -> void:
 		current_level = level
 		
 		Gameplay.instance.load_level_actors()
+		
+	elif level is Gameover:
+		var loaded_player:Player = player_data.instantiate()
+		loaded_player.initialize()
+		var inventory:InventoryComponent = loaded_player.get_component(InventoryComponent)
+		var items = inventory.items
+		for item:EntityResource in items:
+			print(item.entity_name)
+			if item.entity_name == "One Ring":
+				level.set_win()
+				return
+
+
+func show_gameover() -> void:
+	SceneManager.swap_scenes("res://gameover.tscn", self, current_level)
 
 func shift_level(offset:int)->void:
 	var current_path = current_level.scene_file_path

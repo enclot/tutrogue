@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=3 uid="uid://ustwfkqil1fu"]
+
+[ext_resource type="PackedScene" uid="uid://erdt5y2vt48e" path="res://actor.tscn" id="1_jh3ma"]
+[ext_resource type="Script" uid="uid://oorvsyne0rlg" path="res://scripts/one_ring.gd" id="2_nwkcc"]
+[ext_resource type="Resource" uid="uid://c1agfp8bl3khx" path="res://resources/one_ring.tres" id="3_an43e"]
+[ext_resource type="Texture2D" uid="uid://cp2ifs0svya8c" path="res://asset/monochrome-transparent_packed.png" id="4_qjmpr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3d6r"]
+atlas = ExtResource("4_qjmpr")
+region = Rect2(720, 96, 16, 16)
+
+[node name="OneRing" instance=ExtResource("1_jh3ma")]
+script = ExtResource("2_nwkcc")
+entity_resource = ExtResource("3_an43e")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_n3d6r")

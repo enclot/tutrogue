@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EntityResource" load_steps=4 format=3 uid="uid://c1agfp8bl3khx"]
+
+[ext_resource type="Script" uid="uid://dbi2reyfg50wr" path="res://scripts/entity_resource.gd" id="1_0vrdx"]
+[ext_resource type="Texture2D" uid="uid://cp2ifs0svya8c" path="res://asset/monochrome-transparent_packed.png" id="2_sw4o1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3d6r"]
+atlas = ExtResource("2_sw4o1")
+region = Rect2(720, 96, 16, 16)
+
+[resource]
+script = ExtResource("1_0vrdx")
+scene_path = "uid://ustwfkqil1fu"
+entity_name = "One Ring"
+texture = SubResource("AtlasTexture_n3d6r")
+metadata/_custom_type_script = "uid://dbi2reyfg50wr"
