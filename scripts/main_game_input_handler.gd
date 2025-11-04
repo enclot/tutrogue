@@ -53,7 +53,17 @@ func get_action(player:Player) -> Action:
 
 				return ItemUseAction.new(player, item_actor)
 			)
-
+		elif Input.is_action_just_pressed("item_drop"):
+			action = await _with_pause(func() -> Variant:
+				var selected_item:EntityResource = await _get_item("Item drop", player)
+				if not selected_item:
+					return null
+					
+				var packed_scene: PackedScene = load(selected_item.scene_path)
+				var item_actor:Actor = packed_scene.instantiate()
+				item_actor.initialize()
+				return ItemDropAction.new(player, item_actor)
+			)
 			
 	return action
 

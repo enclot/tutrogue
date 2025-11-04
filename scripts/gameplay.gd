@@ -98,5 +98,5 @@ func load_level_actors() -> void:
 		current_level.map.actors_holder.add_child(actor_node)
 		actor_node.map = current_level.map
 		
-
-	
+func add_actor(actor_node:Actor)->void:
+	current_level.map.actors_holder.add_child(actor_node)
