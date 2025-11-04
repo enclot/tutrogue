@@ -9,7 +9,7 @@
 atlas = ExtResource("4_qjmpr")
 region = Rect2(720, 96, 16, 16)
 
-[node name="OneRing" instance=ExtResource("1_jh3ma")]
+[node name="OneRing" groups=["item"] instance=ExtResource("1_jh3ma")]
 script = ExtResource("2_nwkcc")
 entity_resource = ExtResource("3_an43e")
 

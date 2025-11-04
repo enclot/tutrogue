@@ -17,5 +17,7 @@ texture = SubResource("AtlasTexture_ecrd2")
 metadata/_custom_type_script = "uid://dbi2reyfg50wr"
 
 [node name="UpStairs" groups=["stairs"] instance=ExtResource("1_f5sng")]
+z_index = -1
 script = ExtResource("2_tvrbo")
+direction = null
 entity_resource = SubResource("Resource_4menu")

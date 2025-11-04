@@ -25,12 +25,18 @@ func _on_level_added(level) -> void:
 	elif level is Gameover:
 		var loaded_player:Player = player_data.instantiate()
 		loaded_player.initialize()
+		
+		var stats:StatsComponent = loaded_player.get_component(StatsComponent)
+		if not stats.is_alive():
+			level.set_dead_message()
+			return
+		
 		var inventory:InventoryComponent = loaded_player.get_component(InventoryComponent)
 		var items = inventory.items
 		for item:EntityResource in items:
 			print(item.entity_name)
 			if item.entity_name == "One Ring":
-				level.set_win()
+				level.set_win_message()
 				return
 
 
