@@ -25,11 +25,12 @@ func build(window_title:String, player:Player) -> void:
 	if item_list.get_child_count()>0:
 		item_list.get_child(0).grab_focus()
 		
-func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
-		item_selected.emit(null)
-		queue_free() #menuを破棄
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		item_selected.emit(null)
+		queue_free() #menuを破棄		
+		
 func _register_item(_index: int, item:EntityResource) -> void:
 	var item_button:Button = INVENTORY_ITEM.instantiate()
 	item_button.text = item.entity_name
