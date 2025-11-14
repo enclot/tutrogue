@@ -27,10 +27,10 @@ func initialize(_user_actor:Actor, _specifiable:SpecifiableComponent) -> void:
 	base_position = _user_actor.grid_position
 	cursor.grid_position = _user_actor.grid_position
 	cursor.map = _user_actor.map
-	
-func _physics_process(_delta: float) -> void:
+
+func _input(event: InputEvent) -> void:
 	for direction in directions:
-		if Input.is_action_just_pressed(direction):
+		if event.is_action_pressed(direction):
 			var offset: Vector2i = directions[direction]
 			var target_position = cursor.grid_position + offset
 			var distance = base_position.distance_to(target_position)
@@ -38,12 +38,12 @@ func _physics_process(_delta: float) -> void:
 				#target position候補を取得
 				specifiable_component.target_positions = _get_specified_positions(target_position)
 				MovementAction.new(cursor,offset).perform()
-	if Input.is_action_just_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel"):
 		position_selected.emit(false)
 		queue_free()
-	elif Input.is_action_just_pressed("ui_accept"):
+	elif event.is_action_pressed("ui_accept"):
 		position_selected.emit(true)
-		queue_free()
+		queue_free()	
 
 
 func _get_specified_positions(_target_position:Vector2i) -> Array[Vector2i]:

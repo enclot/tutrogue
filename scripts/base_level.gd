@@ -21,12 +21,12 @@ func reset_player() -> void:
 	
 	map.update_fov(player)
 
-
-func _physics_process(_delta: float) -> void:
+		
+func _input(_event: InputEvent) -> void:
 	var action:Action = await input_handler.get_action(player)
 	if action and action.perform():
 		_handle_enemy_turns()
-		map.update_fov(player)
+		map.update_fov(player)	
 
 func _handle_enemy_turns() -> void:
 	var enemies = map.get_actors_in_group("enemy")
