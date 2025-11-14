@@ -11,4 +11,4 @@ func activate(_user:Actor) -> bool:
 			#print(target_actor.entity_name)
 			var target_stats:StatsComponent = target_actor.get_component(StatsComponent)
 			target_stats.hp -= 100
-	return false
+	return true

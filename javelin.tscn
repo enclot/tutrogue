@@ -1,13 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://cv143554mhg0f"]
+[gd_scene load_steps=7 format=3 uid="uid://cv143554mhg0f"]
 
 [ext_resource type="PackedScene" uid="uid://erdt5y2vt48e" path="res://actor.tscn" id="1_yxcsy"]
 [ext_resource type="Script" uid="uid://cdbyu5t25ri5e" path="res://scripts/javelin.gd" id="2_lgh38"]
 [ext_resource type="Script" uid="uid://y438pous4h43" path="res://scripts/specifiable_component.gd" id="2_sh4rx"]
 [ext_resource type="Resource" uid="uid://kltay7mytc87" path="res://resources/javelin.tres" id="3_lgh38"]
+[ext_resource type="Texture2D" uid="uid://cp2ifs0svya8c" path="res://asset/monochrome-transparent_packed.png" id="4_t0i7p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0apms"]
+atlas = ExtResource("4_t0i7p")
+region = Rect2(576, 48, 16, 16)
 
 [node name="Javelin" groups=["item"] instance=ExtResource("1_yxcsy")]
 script = ExtResource("2_lgh38")
 entity_resource = ExtResource("3_lgh38")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_0apms")
 
 [node name="SpecifiableComponent" type="Node" parent="." index="1"]
 script = ExtResource("2_sh4rx")
