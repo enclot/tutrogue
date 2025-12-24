@@ -18,5 +18,13 @@ https://enclot.itch.io/tutrogue
 
 
 
+## Tutorial Book
 
+https://enclota.booth.pm/items/7677308
+
+
+
+BOOTHにて、本を販売中です（Japanese）
+
+こちらもよろしくお願いします。
 
