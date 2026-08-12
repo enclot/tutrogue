@@ -9,6 +9,7 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rka8t"]
 texture = ExtResource("2_ihfcg")
 0:0/0 = 0
+0:0/0/custom_data_0 = true
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -1088,6 +1089,8 @@ texture = ExtResource("2_ihfcg")
 48:21/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_5hph3"]
+custom_data_layer_0/name = "walkable"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_rka8t")
 
 [node name="Level1" type="Node2D" unique_id=1813427395]
