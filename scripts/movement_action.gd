@@ -8,4 +8,4 @@ func _init(_offset:Vector2i) -> void:
 
 func perform(_player:Player) -> bool:
 	print("MovementAction peform ", offset)
-	return true
+	return _player.move(offset)

@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://dytte8hu0a5hi"]
 
 [ext_resource type="PackedScene" uid="uid://bo8nkr2jp6l61" path="res://player.tscn" id="1_3hls8"]
+[ext_resource type="Script" uid="uid://cci8c4wre7705" path="res://scripts/level_1.gd" id="1_hn12h"]
 [ext_resource type="Script" uid="uid://di3w8f0wkodik" path="res://scripts/player.gd" id="2_hbghi"]
 [ext_resource type="Script" uid="uid://dk1y0np33rf6p" path="res://scripts/game_input_handler.gd" id="3_hn12h"]
 
 [node name="Level1" type="Node2D" unique_id=1813427395]
+script = ExtResource("1_hn12h")
 
 [node name="GameInputHandler" type="Node" parent="." unique_id=1394709392]
 script = ExtResource("3_hn12h")
