@@ -9,6 +9,11 @@ var grid_position:Vector2i:
 	set(value):
 		grid_position = value
 		position = grid_position*tile_size
+
+func _ready() -> void:
+	@warning_ignore("integer_division")
+	grid_position = Vector2i(position)/tile_size
+	#grid_position = Vector2i(position / Vector2(tile_size))
 		
 func get_action() -> Action:
 	return await input_handler.action_selected
