@@ -17,7 +17,8 @@ func _init(_tilemap:TileMapLayer) -> void:
 		for x in width:
 			var data = _tilemap.get_cell_tile_data(Vector2i(x,y))
 			var property = CellProperty.new(
-				data.get_custom_data("walkable")
+				data.get_custom_data("walkable"),
+				data.get_custom_data("blocks_vision")
 			)
 			cells.append(property)	
 
