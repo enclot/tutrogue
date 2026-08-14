@@ -8,6 +8,9 @@ extends Node2D
 func _ready() -> void:
 	player.input_handler = input_handler
 	player.map = map
+	map.update_visibility(player.grid_position)
 	while true:
 		var action:Action = await player.get_action()
 		action.perform(player)
+		
+		map.update_visibility(player.grid_position)
