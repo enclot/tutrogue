@@ -13,9 +13,9 @@ func _ready() -> void:
 
 @abstract func get_action() -> Action
 
-func move(_offset:Vector2i) -> bool:
+func move(_offset:Vector2i) -> ActionResult:
 	var target_pos:Vector2i = grid_position +_offset
 	if map.is_walkable(target_pos):
 		grid_position = target_pos
-		return true
-	return false
+		return ActionResult.new(true)
+	return ActionResult.new(false)
