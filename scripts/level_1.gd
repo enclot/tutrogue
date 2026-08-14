@@ -23,7 +23,7 @@ func _ready() -> void:
 					if _perform_action(action, actor):
 						break
 				
-					
+		map.update_navigation_costs()		
 		
 func _get_actor_action(_actor:Actor) -> Action:
 	if _actor is Player:

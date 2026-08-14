@@ -28,3 +28,9 @@ func get_player() -> Actor:
 func get_point_path_to(
 		from:Vector2i, to:Vector2i) -> PackedVector2Array:
 	return cell_properties_map.pathfinder.get_point_path(from, to)
+	
+func update_navigation_costs() -> void:
+	cell_properties_map.reset_navigation_costs()
+	for node in get_tree().get_nodes_in_group(&"actor"):
+		var obj = node as GridObject
+		cell_properties_map.add_navigation_weight(obj.grid_position)

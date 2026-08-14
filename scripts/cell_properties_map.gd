@@ -53,3 +53,9 @@ func _setup_pathfinding() -> void:
 			var grid_position := Vector2i(x, y)
 			pathfinder.set_point_solid(grid_position,
 				not get_cell(grid_position).is_walkable)
+
+func reset_navigation_costs() -> void:
+	pathfinder.fill_weight_scale_region(pathfinder.region, 0.0)
+	
+func add_navigation_weight(_pos:Vector2i) -> void:
+	pathfinder.set_point_weight_scale(_pos, 10.0)
