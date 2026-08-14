@@ -21,3 +21,10 @@ func get_grid_object_at_location(_pos:Vector2i) -> GridObject:
 		if obj.grid_position == _pos:
 			return obj
 	return null
+	
+func get_player() -> Actor:
+	return get_tree().get_first_node_in_group(&"player")
+	
+func get_point_path_to(
+		from:Vector2i, to:Vector2i) -> PackedVector2Array:
+	return cell_properties_map.pathfinder.get_point_path(from, to)

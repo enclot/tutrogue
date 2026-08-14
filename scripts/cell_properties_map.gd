@@ -7,6 +7,7 @@ var height:int
 
 var cells:Array[CellProperty]
 
+var pathfinder: AStarGrid2D 
 
 func _init(_tilemap:TileMapLayer) -> void:
 	var used_rect:Rect2i = _tilemap.get_used_rect()
@@ -21,6 +22,8 @@ func _init(_tilemap:TileMapLayer) -> void:
 				data.get_custom_data("blocks_vision")
 			)
 			cells.append(property)	
+			
+	_setup_pathfinding()
 
 func get_cell(_pos:Vector2i) ->CellProperty:
 	return cells[_pos.x + width*_pos.y]
@@ -33,3 +36,20 @@ func is_in_bounds(_pos: Vector2i) -> bool:
 		and _pos.y < height
 		)
 		
+func _setup_pathfinding() -> void:
+	pathfinder = AStarGrid2D.new()
+	pathfinder.region = Rect2i(0, 0, width, height)
+	
+	pathfinder.diagonal_mode = \
+		AStarGrid2D.DIAGONAL_MODE_NEVER
+	pathfinder.default_compute_heuristic = \
+		AStarGrid2D.HEURISTIC_MANHATTAN
+	pathfinder.default_estimate_heuristic = \
+		AStarGrid2D.HEURISTIC_MANHATTAN
+	
+	pathfinder.update()
+	for y in height:
+		for x in width:
+			var grid_position := Vector2i(x, y)
+			pathfinder.set_point_solid(grid_position,
+				not get_cell(grid_position).is_walkable)
