@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d2gpvqshakcu4"]
+
+[ext_resource type="Script" uid="uid://8p1ui6iu3fqk" path="res://scripts/grid_object.gd" id="1_cw5cl"]
+
+[node name="GridObject" type="Node2D" unique_id=1666315949 groups=["grid_object"]]
+script = ExtResource("1_cw5cl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1067059689]
+centered = false
