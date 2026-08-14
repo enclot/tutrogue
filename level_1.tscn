@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bo8nkr2jp6l61" path="res://player.tscn" id="1_3hls8"]
 [ext_resource type="Script" uid="uid://cci8c4wre7705" path="res://scripts/level_1.gd" id="1_hn12h"]
-[ext_resource type="Script" uid="uid://di3w8f0wkodik" path="res://scripts/player.gd" id="2_hbghi"]
 [ext_resource type="Texture2D" uid="uid://li6jbbn60vpk" path="res://asset/colored_packed.png" id="2_ihfcg"]
 [ext_resource type="Script" uid="uid://dk1y0np33rf6p" path="res://scripts/game_input_handler.gd" id="3_hn12h"]
 [ext_resource type="Script" uid="uid://cxyb3jjf3w5ca" path="res://scripts/map.gd" id="5_rka8t"]
+[ext_resource type="PackedScene" uid="uid://dmylkkdndpi1p" path="res://skeleton.tscn" id="6_5hph3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rka8t"]
 texture = ExtResource("2_ihfcg")
@@ -1112,4 +1112,6 @@ tile_set = SubResource("TileSet_5hph3")
 
 [node name="Player" parent="." unique_id=1737094811 instance=ExtResource("1_3hls8")]
 position = Vector2(48, 32)
-script = ExtResource("2_hbghi")
+
+[node name="Skeleton" parent="." unique_id=1666315949 instance=ExtResource("6_5hph3")]
+position = Vector2(96, 32)

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dmylkkdndpi1p"]
+
+[ext_resource type="PackedScene" uid="uid://d2gpvqshakcu4" path="res://grid_object.tscn" id="1_plk42"]
+[ext_resource type="Script" uid="uid://8g0rtyujv5yf" path="res://scripts/skeleton.gd" id="2_r6xse"]
+[ext_resource type="Script" uid="uid://dbi2reyfg50wr" path="res://scripts/entity_resource.gd" id="3_sv33q"]
+[ext_resource type="Texture2D" uid="uid://cp2ifs0svya8c" path="res://asset/monochrome-transparent_packed.png" id="4_uaaco"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymvsc"]
+atlas = ExtResource("4_uaaco")
+region = Rect2(464, 96, 16, 16)
+
+[sub_resource type="Resource" id="Resource_rwpf0"]
+script = ExtResource("3_sv33q")
+entity_name = "skeleton"
+texture = SubResource("AtlasTexture_ymvsc")
+metadata/_custom_type_script = "uid://dbi2reyfg50wr"
+
+[node name="Skeleton" unique_id=1666315949 groups=["actor", "target"] instance=ExtResource("1_plk42")]
+script = ExtResource("2_r6xse")
+entity_resource = SubResource("Resource_rwpf0")
