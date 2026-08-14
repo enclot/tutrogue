@@ -29,3 +29,9 @@ func _ai_perform() -> Action:
 	
 func get_action() -> Action:
 	return _ai_perform()
+
+func died() -> void:
+	print("%s is dead"% entity_name)
+	remove_from_group("actor")
+	remove_from_group("target")
+	remove_from_group("grid_object")

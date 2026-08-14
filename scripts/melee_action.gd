@@ -13,7 +13,12 @@ func perform(attacker:Actor)->ActionResult:
 	#actorがStatsComponentを持っていたら
 	var target_stats:StatsComponent = \
 		target_actor.get_component(StatsComponent)
-	if target_stats:
-		print("%s HP is %d"%
-		[target_actor.entity_name,target_stats.hp])	
+	var attacker_stats:StatsComponent = \
+		attacker.get_component(StatsComponent)
+	if target_stats and attacker_stats:
+		target_stats.take_damage(attacker_stats.power)
+		#target_stats.hp -= attacker_stats.power
+		print("%s is damaged. current HP is %d"%[
+			target_actor.entity_name, target_stats.hp])
+			
 	return ActionResult.new(true)
