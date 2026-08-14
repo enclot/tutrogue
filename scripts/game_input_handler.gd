@@ -17,5 +17,5 @@ func _input(event: InputEvent) -> void:
 				var offset: Vector2i = DIRECTIONS[action]
 				print(action, " -> ", offset)
 				# ここでアクションを作成してaction_selectedを発火させる
-				action_selected.emit(MovementAction.new(offset))
+				action_selected.emit(BumpAction.new(offset))
 				break
