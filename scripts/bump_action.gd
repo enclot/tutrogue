@@ -13,6 +13,6 @@ func perform(_actor:Actor) -> ActionResult:
 	if obj:
 		if obj.is_in_group(&"target"):
 			print(obj.entity_name)
-			return _actor.move(Vector2i.ZERO)
+			return ActionResult.new(false,MeleeAction.new(obj))
 	
-	return _actor.move(offset)
+	return ActionResult.new(false,MovementAction.new(offset))
