@@ -19,3 +19,5 @@ func _input(event: InputEvent) -> void:
 				# ここでアクションを作成してaction_selectedを発火させる
 				action_selected.emit(BumpAction.new(offset))
 				break
+		if event.is_action_pressed("wait"):
+			action_selected.emit(MovementAction.new(Vector2i.ZERO))

@@ -18,3 +18,6 @@ metadata/_custom_type_script = "uid://dbi2reyfg50wr"
 [node name="Skeleton" unique_id=1666315949 groups=["actor", "target"] instance=ExtResource("1_plk42")]
 script = ExtResource("2_r6xse")
 entity_resource = SubResource("Resource_rwpf0")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1067059689]
+texture = SubResource("AtlasTexture_ymvsc")
