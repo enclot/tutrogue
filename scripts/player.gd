@@ -10,7 +10,6 @@ var input_handler:GameInputHandler:
 	set(value):
 		input_handler = value
 		input_handler.use_item_requested.connect(_on_use_item_requested)
-		#input_handler.action_selected.connect(_on_action_selected)
 		input_handler.action_selected.connect(action_selected.emit)
 
 func get_action() -> Action:
