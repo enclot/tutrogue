@@ -24,5 +24,7 @@ func _input(event: InputEvent) -> void:
 			action_selected.emit(MovementAction.new(Vector2i.ZERO))
 		elif event.is_action("item_use"):
 			use_item_requested.emit()
+		elif event.is_action("item_pickup"):
+			action_selected.emit(PickupAction.new())
 			
 			
