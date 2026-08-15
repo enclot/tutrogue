@@ -25,8 +25,11 @@ func _on_use_item_requested()->void:
 	if inventory:
 		ui.initialize("use", inventory.items)
 		
-	var item = await ui.item_selected
+	var item:EntityResource = await ui.item_selected
 	# ここでItemUseActionをemitする
-	print(item)
+	if item:
+		var packed_scene: PackedScene = load(item.scene_path)
+		var item_scene = packed_scene.instantiate() as Item
+		action_selected.emit(item_scene.activate())
 	
 	get_tree().paused = false
