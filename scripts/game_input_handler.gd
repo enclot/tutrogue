@@ -9,6 +9,7 @@ const DIRECTIONS = {
 }
 
 signal action_selected(Action)
+signal use_item_requested
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed():
@@ -21,3 +22,7 @@ func _input(event: InputEvent) -> void:
 				break
 		if event.is_action_pressed("wait"):
 			action_selected.emit(MovementAction.new(Vector2i.ZERO))
+		elif event.is_action("item_use"):
+			use_item_requested.emit()
+			
+			
