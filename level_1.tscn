@@ -1123,3 +1123,6 @@ position = Vector2(128, 16)
 
 [node name="HealingPotion" parent="." unique_id=2108306069 instance=ExtResource("7_j7kpp")]
 position = Vector2(32, 32)
+
+[node name="HealingPotion2" parent="." unique_id=2005123173 instance=ExtResource("7_j7kpp")]
+position = Vector2(16, 32)
