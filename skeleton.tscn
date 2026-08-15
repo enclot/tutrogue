@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dbi2reyfg50wr" path="res://scripts/entity_resource.gd" id="3_sv33q"]
 [ext_resource type="Texture2D" uid="uid://cp2ifs0svya8c" path="res://asset/monochrome-transparent_packed.png" id="4_uaaco"]
 [ext_resource type="Script" uid="uid://cklp3cb3vpfu6" path="res://scripts/stats_component.gd" id="5_uaaco"]
+[ext_resource type="PackedScene" uid="uid://c80c2r1728ggp" path="res://healthbar.tscn" id="6_ymvsc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ymvsc"]
 atlas = ExtResource("4_uaaco")
@@ -22,6 +23,8 @@ entity_resource = SubResource("Resource_rwpf0")
 
 [node name="Sprite2D" parent="." index="0" unique_id=1067059689]
 texture = SubResource("AtlasTexture_ymvsc")
+
+[node name="Healthbar" parent="Sprite2D" index="0" unique_id=1406723592 instance=ExtResource("6_ymvsc")]
 
 [node name="StatsComponent" type="Node" parent="." index="1" unique_id=77281440]
 script = ExtResource("5_uaaco")
