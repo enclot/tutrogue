@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dk1y0np33rf6p" path="res://scripts/game_input_handler.gd" id="3_hn12h"]
 [ext_resource type="Script" uid="uid://cxyb3jjf3w5ca" path="res://scripts/map.gd" id="5_rka8t"]
 [ext_resource type="PackedScene" uid="uid://dmylkkdndpi1p" path="res://skeleton.tscn" id="6_5hph3"]
+[ext_resource type="PackedScene" uid="uid://d32w7hqjeb4ml" path="res://healing_potion.tscn" id="7_j7kpp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rka8t"]
 texture = ExtResource("2_ihfcg")
@@ -1119,3 +1120,6 @@ position = Vector2(96, 32)
 
 [node name="Skeleton2" parent="." unique_id=1701446683 instance=ExtResource("6_5hph3")]
 position = Vector2(128, 16)
+
+[node name="HealingPotion" parent="." unique_id=2108306069 instance=ExtResource("7_j7kpp")]
+position = Vector2(32, 32)
