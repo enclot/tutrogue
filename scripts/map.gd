@@ -23,7 +23,8 @@ func get_grid_objects_at_location(_pos:Vector2i)->Array[GridObject]:
 	return result
 	
 # セルの指定したグループのgrid_object1つ。無かったらnull	
-func find_grid_object_at_location(_pos:Vector2i, _group:StringName) -> GridObject:
+func find_grid_object_at_location(
+		_pos:Vector2i, _group:StringName) -> GridObject:
 	for node in get_tree().get_nodes_in_group(_group):
 		var obj = node as GridObject
 		if obj.grid_position == _pos:
