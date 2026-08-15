@@ -18,6 +18,3 @@ var entity_name:String:
 func _ready() -> void:
 	grid_position = Vector2i(position / Vector2(tile_size))
 	sprite_2d.texture = entity_resource.texture
-	
-	if sprite_2d.material:
-		sprite_2d.material = sprite_2d.material.duplicate()
