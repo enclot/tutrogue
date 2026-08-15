@@ -17,9 +17,14 @@ func get_action() -> Action:
 
 func _on_use_item_requested()->void:
 	get_tree().paused = true
-	var ui = INVENTORY_UI.instantiate() as InventoryUI
+	var ui = INVENTORY_UI.instantiate() as InventoryUI	
 	add_child(ui)
 	
+	var inventory:InventoryComponent = \
+		get_component(InventoryComponent)
+	if inventory:
+		ui.initialize("use", inventory.items)
+		
 	var item = await ui.item_selected
 	# ここでItemUseActionをemitする
 	print(item)
