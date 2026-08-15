@@ -21,7 +21,8 @@ func _ai_perform() -> Action:
 	var move_offset:Vector2i = destination - grid_position
 	
 	#移動先なにかいたら止まる
-	if map.get_grid_object_at_location(destination):
+	#if map.get_grid_object_at_location(destination):
+	if map.find_grid_object_at_location(destination, &"actor"):
 		return MovementAction.new(Vector2i.ZERO)
 	
 	return MovementAction.new(move_offset)
@@ -34,4 +35,3 @@ func died() -> void:
 	print("%s is dead"% entity_name)
 	remove_from_group("actor")
 	remove_from_group("target")
-	remove_from_group("grid_object")

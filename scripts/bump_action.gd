@@ -9,8 +9,9 @@ func _init(_offset:Vector2i) -> void:
 func perform(_actor:Actor) -> ActionResult:
 	print("bump peform ", offset)
 	var dest = _actor.grid_position + offset
-	var obj = _actor.map.get_grid_object_at_location(dest)
-	if obj:
+	
+	var objects = _actor.map.get_grid_objects_at_location(dest)
+	for obj in objects:
 		if obj.is_in_group(&"target"):
 			print(obj.entity_name)
 			return ActionResult.new(false,MeleeAction.new(obj))
