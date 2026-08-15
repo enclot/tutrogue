@@ -1,21 +1,17 @@
 @tool
-@abstract class_name Actor 
-extends GridObject
+@abstract class_name Actor extends GridObject
 
 var map:Map
 	
 var capabilities:Array[Component]
 
-func initialize()->void:
-	grid_position = Vector2i(position / Vector2(tile_size))
 	
+func _ready() -> void:
 	for node in get_children():
 		if node is Component:
 			capabilities.append(node as Component)
-	
-func _ready() -> void:
-	initialize()
-	sprite_2d.texture = entity_resource.texture
+			
+	super()
 
 @abstract func get_action() -> Action
 
