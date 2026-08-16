@@ -4,8 +4,7 @@ class_name InventoryComponent extends Component
 @export var capacity:int = 1
 	
 func remove_item(item:EntityResource)->void:
-	var idx = items.find(item)
-	items.remove_at(idx)
+	items.erase(item)
 	
 func is_full()->bool:
 	return items.size()>=capacity
