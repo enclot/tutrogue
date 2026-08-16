@@ -1,7 +1,7 @@
 class_name InventoryUI
 extends CanvasLayer
 
-signal item_selected(item)
+signal item_selected(item:EntityResource)
 
 @onready var label: Label = $PanelContainer/VBoxContainer/Label
 @onready var item_list: VBoxContainer = \
