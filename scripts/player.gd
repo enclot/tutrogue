@@ -25,13 +25,13 @@ func _on_use_item_requested()->void:
 	if inventory:
 		ui.initialize("use", inventory.items)
 		var item = await ui.item_selected
-		if _activate(item):
+		if _try_activate(item):
 			# 使用したアイテムをインベントリから削除
 			inventory.remove_item(item)
 		
 	get_tree().paused = false
 	
-func _activate(_item:EntityResource)->bool:
+func _try_activate(_item:EntityResource)->bool:
 	if not _item:
 		return false
 		
