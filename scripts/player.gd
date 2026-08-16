@@ -24,12 +24,22 @@ func _on_use_item_requested()->void:
 		get_component(InventoryComponent)
 	if inventory:
 		ui.initialize("use", inventory.items)
+		var item = await ui.item_selected
+		if _activate(item):
+			# 使用したアイテムをインベントリから削除
+			inventory.remove_item(item)
 		
-	var item:EntityResource = await ui.item_selected
-	# ここでItemUseActionをemitする
-	if item:
-		var packed_scene: PackedScene = load(item.scene_path)
-		var item_scene = packed_scene.instantiate() as Item
-		action_selected.emit(item_scene.activate())
-	
 	get_tree().paused = false
+	
+func _activate(_item:EntityResource)->bool:
+	if not _item:
+		return false
+		
+	var packed_scene: PackedScene = load(_item.scene_path)
+	var selected = packed_scene.instantiate() as Item
+	if selected.can_use(self):
+		action_selected.emit(selected.activate())
+		return true
+	return false
+	
+	
