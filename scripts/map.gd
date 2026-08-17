@@ -26,6 +26,11 @@ func update_visibility(_player_pos:Vector2i) -> void:
 	var view_radius: int = 5 # プレイヤーの視野半径（マス数）
 	fov_system.update_fov(_player_pos, view_radius)
 	cell_visibility_map.update()
+	# 見えないGridObjectを表示しない
+	for node in get_tree().get_nodes_in_group(&"grid_object"):
+		var obj = node as GridObject
+		var visibility = cell_visibility_map.get_cell(obj.grid_position)
+		obj.visible = visibility.is_visible
 	
 # セルのgrid_object全部　無かったら空
 func get_grid_objects_at_location(_pos:Vector2i)->Array[GridObject]:
