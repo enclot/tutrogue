@@ -19,7 +19,11 @@ func _ready() -> void:
 			var actor = node as Actor
 			if actor:
 				while true:
+					if not is_instance_valid(actor) or \
+						not actor.is_in_group(&"actor"):
+						break 
 					var action:Action = await _get_actor_action(actor)
+
 					if _perform_action(action, actor):
 						break
 				
