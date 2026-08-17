@@ -15,7 +15,7 @@ entity_name = "UpStairs"
 texture = SubResource("AtlasTexture_acoe6")
 metadata/_custom_type_script = "uid://dbi2reyfg50wr"
 
-[node name="UpStairs" unique_id=1666315949 instance=ExtResource("1_cgj63")]
+[node name="UpStairs" unique_id=1666315949 groups=["stairs"] instance=ExtResource("1_cgj63")]
 script = ExtResource("2_08g4f")
 direction = -1
 pair = 0
