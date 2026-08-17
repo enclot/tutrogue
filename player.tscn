@@ -39,5 +39,5 @@ metadata/_custom_type_script = "uid://cklp3cb3vpfu6"
 
 [node name="InventoryComponent" type="Node" parent="." index="2" unique_id=1325385329]
 script = ExtResource("7_1jxqw")
-items = Array[ExtResource("3_hqtel")]([ExtResource("8_dw050"), ExtResource("9_b26j0")])
+items = Array[ExtResource("3_hqtel")]([ExtResource("8_dw050"), ExtResource("9_b26j0"), ExtResource("8_dw050")])
 metadata/_custom_type_script = "uid://c0sbkh5lgpd27"

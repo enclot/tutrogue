@@ -46,6 +46,13 @@ func _try_activate(_item:EntityResource)->bool:
 		add_child(pos_ui) #playerの子に追加
 		pos_ui.configure_target_type(selected.target_type)
 		var positions:Array[Vector2i] = await pos_ui.positions_selected
+		
+		if selected.target_type.select_mode==TargetType.Mode.LINE:
+			for i in range(positions.size()):
+				if not map.is_walkable(positions[i]):
+					positions = positions.slice(0, i)
+					break
+					
 		selected.target_positions = positions
 		
 	if selected.can_use(self):
