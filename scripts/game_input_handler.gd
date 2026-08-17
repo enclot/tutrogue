@@ -20,11 +20,15 @@ func _input(event: InputEvent) -> void:
 				# ここでアクションを作成してaction_selectedを発火させる
 				action_selected.emit(BumpAction.new(offset))
 				break
-		if event.is_action_pressed("wait"):
-			action_selected.emit(MovementAction.new(Vector2i.ZERO))
-		elif event.is_action("item_use"):
+
+		if event.is_action("item_use"):
 			use_item_requested.emit()
 		elif event.is_action("item_pickup"):
 			action_selected.emit(PickupAction.new())
-			
+		elif Input.is_action_just_pressed("down_stairs"):
+			action_selected.emit(StairsAction.new(Stairs.Direction.DOWN))
+		elif Input.is_action_just_pressed("up_stairs"):
+			action_selected.emit(StairsAction.new(Stairs.Direction.UP))
+		elif Input.is_action_just_pressed("wait"):
+			action_selected.emit(MovementAction.new(Vector2i.ZERO))
 			
