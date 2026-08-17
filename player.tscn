@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c80c2r1728ggp" path="res://healthbar.tscn" id="5_2hs0m"]
 [ext_resource type="Script" uid="uid://cklp3cb3vpfu6" path="res://scripts/stats_component.gd" id="5_sweqy"]
 [ext_resource type="Script" uid="uid://c0sbkh5lgpd27" path="res://scripts/inventory_component.gd" id="7_1jxqw"]
-[ext_resource type="Resource" uid="uid://bwv1ahtg0hagw" path="res://resources/healing_potion.tres" id="8_dw050"]
+[ext_resource type="Resource" uid="uid://kltay7mytc87" path="res://resources/javelin.tres" id="8_dw050"]
+[ext_resource type="Resource" uid="uid://bwv1ahtg0hagw" path="res://resources/healing_potion.tres" id="9_b26j0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
 atlas = ExtResource("4_sweqy")
@@ -38,5 +39,5 @@ metadata/_custom_type_script = "uid://cklp3cb3vpfu6"
 
 [node name="InventoryComponent" type="Node" parent="." index="2" unique_id=1325385329]
 script = ExtResource("7_1jxqw")
-items = Array[ExtResource("3_hqtel")]([ExtResource("8_dw050")])
+items = Array[ExtResource("3_hqtel")]([ExtResource("8_dw050"), ExtResource("9_b26j0")])
 metadata/_custom_type_script = "uid://c0sbkh5lgpd27"
