@@ -6,8 +6,8 @@ func _init(_direction:Stairs.Direction) ->void:
 	input_direction = _direction
 	
 func perform(_actor:Actor) -> ActionResult:
-	var stair:Stairs = \
-		_actor.map.find_grid_object_at_location(_actor.grid_position,&"stairs")
+	var stair:Stairs = _actor.map.find_grid_object_at_location(
+		_actor.grid_position,&"stairs")
 		
 	if not stair:
 		return ActionResult.new(false)
