@@ -2,8 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://d2gpvqshakcu4" path="res://grid_object.tscn" id="1_yggyg"]
 [ext_resource type="Script" uid="uid://djj0o1ns8yrog" path="res://scripts/healing_potion.gd" id="2_raxl3"]
+[ext_resource type="Script" uid="uid://bg00i5u866iqs" path="res://scripts/target_type.gd" id="3_17exi"]
 [ext_resource type="Resource" uid="uid://bwv1ahtg0hagw" path="res://resources/healing_potion.tres" id="3_o8scg"]
+
+[sub_resource type="Resource" id="Resource_js6vx"]
+script = ExtResource("3_17exi")
+metadata/_custom_type_script = "uid://bg00i5u866iqs"
 
 [node name="HealingPotion" unique_id=1666315949 groups=["pickup"] instance=ExtResource("1_yggyg")]
 script = ExtResource("2_raxl3")
+target_type = SubResource("Resource_js6vx")
 entity_resource = ExtResource("3_o8scg")
