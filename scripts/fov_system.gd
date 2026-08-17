@@ -11,7 +11,8 @@ const MULTIPLIERS = [
 var properties_map:CellPropertiesMap
 var visibility_map:CellVisibilityMap
 
-func _init(_properties_map:CellPropertiesMap, _visibility_map:CellVisibilityMap) -> void:
+func _init(_properties_map:CellPropertiesMap, 
+			_visibility_map:CellVisibilityMap) -> void:
 	properties_map = _properties_map
 	visibility_map = _visibility_map
 
