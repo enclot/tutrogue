@@ -17,5 +17,9 @@ func perform(_actor:Actor) -> ActionResult:
 		return ActionResult.new(false)
 	
 	print("direction=",input_direction)
-	
+	if input_direction == Stairs.Direction.UP:
+		Gameplay.instance.level1()
+	elif input_direction == Stairs.Direction.DOWN:
+		Gameplay.instance.level2()
+
 	return ActionResult.new(true)

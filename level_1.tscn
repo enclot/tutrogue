@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://cxyb3jjf3w5ca" path="res://scripts/map.gd" id="5_rka8t"]
 [ext_resource type="PackedScene" uid="uid://dmylkkdndpi1p" path="res://skeleton.tscn" id="6_5hph3"]
 [ext_resource type="PackedScene" uid="uid://d32w7hqjeb4ml" path="res://healing_potion.tscn" id="7_j7kpp"]
+[ext_resource type="PackedScene" uid="uid://c02hueoagh3sb" path="res://up_stairs.tscn" id="9_gyffv"]
+[ext_resource type="PackedScene" uid="uid://byv23258gfgw2" path="res://down_stairs.tscn" id="10_1pe0h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rka8t"]
 texture = ExtResource("2_ihfcg")
@@ -1133,3 +1135,9 @@ position = Vector2(32, 32)
 
 [node name="HealingPotion2" parent="." unique_id=2005123173 instance=ExtResource("7_j7kpp")]
 position = Vector2(16, 32)
+
+[node name="UpStairs" parent="." unique_id=2053076274 instance=ExtResource("9_gyffv")]
+position = Vector2(32, 16)
+
+[node name="DownStairs" parent="." unique_id=68028 instance=ExtResource("10_1pe0h")]
+position = Vector2(16, 16)

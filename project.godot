@@ -15,9 +15,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="tutrogue"
-run/main_scene="uid://dm3w3qfpw54mx"
+run/main_scene="uid://cetrevqsha6pa"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*uid://u8ar1l15wb2b"
 
 [display]
 
