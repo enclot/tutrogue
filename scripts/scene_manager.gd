@@ -1,6 +1,7 @@
 extends Node
 
-signal scene_added(loaded_scene:Node)
+signal scene_adding(_scene:Node)
+signal scene_added(loaded_scene:Node)#シーンツリーに追加された
 signal load_complete(loaded_scene:Node)
 
 const LOADING_SCREEN = preload("res://loading_screen.tscn")
@@ -10,11 +11,6 @@ var _loading_in_progress:bool = false
 var _content_path:String
 var _load_scene_into:Node #
 var _scene_to_unload:Node #
-
-func _ready() -> void:
-	pass
-	
-
 
 func _add_loading_screen() -> void:
 	_loading_screen = LOADING_SCREEN.instantiate() as LoadingScreen
@@ -36,11 +32,14 @@ func _load_content(content_path:String) -> void:
 	
 	var incoming_scene:Node = \
 		 ResourceLoader.load_threaded_get(content_path).instantiate()
+	
+	
 	if _scene_to_unload:
 		if _scene_to_unload != get_tree().root: 
 			_scene_to_unload.queue_free()
 			await _scene_to_unload.tree_exited
-
+			
+	scene_adding.emit(incoming_scene)
 	_load_scene_into.add_child(incoming_scene)
 	scene_added.emit(incoming_scene)
 	#_ready()がすぐ呼ばれる
