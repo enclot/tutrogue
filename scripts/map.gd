@@ -5,13 +5,27 @@ extends Node2D
 var cell_properties_map:CellPropertiesMap
 
 @onready var tilemap: TileMapLayer = $TileMapLayer
+@onready var cell_visibility_map: CellVisibilityMap = $CellVisibilityMap
+
+var fov_system:FoVSystem
 
 func _ready() -> void:
 	cell_properties_map = CellPropertiesMap.new(tilemap)
+	
+	var map_scale:Vector2 = tilemap.tile_set.tile_size
+	cell_visibility_map.initialize(\
+		cell_properties_map.width,cell_properties_map.height,map_scale)
+	fov_system = FoVSystem.new(cell_properties_map, cell_visibility_map)
 
 func is_walkable(_pos:Vector2i) -> bool:	
 	return cell_properties_map.is_in_bounds(_pos) and \
 		cell_properties_map.get_cell(_pos).is_walkable
+
+func update_visibility(_player_pos:Vector2i) -> void:
+	cell_visibility_map.clear_visible_flags()
+	var view_radius: int = 5 # プレイヤーの視野半径（マス数）
+	fov_system.update_fov(_player_pos, view_radius)
+	cell_visibility_map.update()
 	
 # セルのgrid_object全部　無かったら空
 func get_grid_objects_at_location(_pos:Vector2i)->Array[GridObject]:

@@ -14,6 +14,7 @@ func _ready() -> void:
 		if actor:
 			actor.map = map
 			
+	map.update_visibility(player.grid_position)
 	while true:
 		for node in get_tree().get_nodes_in_group(&"actor"):
 			var actor = node as Actor
@@ -27,7 +28,8 @@ func _ready() -> void:
 					if _perform_action(action, actor):
 						break
 				
-		map.update_navigation_costs()		
+		map.update_navigation_costs()
+		map.update_visibility(player.grid_position)
 		
 func _get_actor_action(_actor:Actor) -> Action:
 	if _actor is Player:
