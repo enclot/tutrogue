@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c02hueoagh3sb"]
+
+[ext_resource type="PackedScene" uid="uid://d2gpvqshakcu4" path="res://grid_object.tscn" id="1_cgj63"]
+[ext_resource type="Script" uid="uid://bdedfclwwtjub" path="res://scripts/stairs.gd" id="2_08g4f"]
+[ext_resource type="Script" uid="uid://dbi2reyfg50wr" path="res://scripts/entity_resource.gd" id="3_ecrd2"]
+[ext_resource type="Texture2D" uid="uid://li6jbbn60vpk" path="res://asset/colored_packed.png" id="4_4menu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acoe6"]
+atlas = ExtResource("4_4menu")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="Resource" id="Resource_4vwno"]
+script = ExtResource("3_ecrd2")
+entity_name = "UpStairs"
+texture = SubResource("AtlasTexture_acoe6")
+metadata/_custom_type_script = "uid://dbi2reyfg50wr"
+
+[node name="UpStairs" unique_id=1666315949 instance=ExtResource("1_cgj63")]
+script = ExtResource("2_08g4f")
+direction = -1
+pair = 0
+entity_resource = SubResource("Resource_4vwno")
