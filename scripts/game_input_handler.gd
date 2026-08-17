@@ -8,7 +8,7 @@ const DIRECTIONS = {
 	&"move_right": Vector2i.RIGHT,
 }
 
-signal action_selected(Action)
+signal action_selected(action:Action)
 signal use_item_requested
 
 func _input(event: InputEvent) -> void:
