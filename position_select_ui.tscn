@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://coqpmd2j7vcjr"]
+
+[ext_resource type="Script" uid="uid://djsa2y4l080ff" path="res://scripts/position_select_ui.gd" id="1_86lxs"]
+[ext_resource type="Script" uid="uid://dbi2reyfg50wr" path="res://scripts/entity_resource.gd" id="2_86lxs"]
+[ext_resource type="PackedScene" uid="uid://d2gpvqshakcu4" path="res://grid_object.tscn" id="2_qyyl2"]
+[ext_resource type="Texture2D" uid="uid://cp2ifs0svya8c" path="res://asset/monochrome-transparent_packed.png" id="3_qyyl2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86lxs"]
+atlas = ExtResource("3_qyyl2")
+region = Rect2(304, 224, 16, 16)
+
+[sub_resource type="Resource" id="Resource_kdnp8"]
+script = ExtResource("2_86lxs")
+entity_name = "Cursor"
+texture = SubResource("AtlasTexture_86lxs")
+metadata/_custom_type_script = "uid://dbi2reyfg50wr"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyyl2"]
+atlas = ExtResource("3_qyyl2")
+region = Rect2(400, 224, 16, 16)
+
+[sub_resource type="Resource" id="Resource_c53g7"]
+script = ExtResource("2_86lxs")
+entity_name = "Selected"
+texture = SubResource("AtlasTexture_qyyl2")
+metadata/_custom_type_script = "uid://dbi2reyfg50wr"
+
+[node name="PositionSelectUI" type="Node2D" unique_id=270142693]
+process_mode = 2
+script = ExtResource("1_86lxs")
+
+[node name="Cursor" parent="." unique_id=1666315949 instance=ExtResource("2_qyyl2")]
+entity_resource = SubResource("Resource_kdnp8")
+
+[node name="Selected" parent="." unique_id=1692816767 instance=ExtResource("2_qyyl2")]
+entity_resource = SubResource("Resource_c53g7")
