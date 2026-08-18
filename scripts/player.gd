@@ -53,19 +53,13 @@ func _on_use_item_requested()->void:
 		ui.initialize("use", inventory.items)
 		var item:EntityResource = await ui.item_selected
 		
-		if await _try_activate(item):
+		if item!=null and await _try_activate(item):
 			# 使用したアイテムをインベントリから削除
 			inventory.remove_item(item)
 		
 	get_tree().paused = false
 	
-
-		
-	
 func _try_activate(_item:EntityResource)->bool:
-	if not _item:
-		return false
-
 	var packed_scene: PackedScene = load(_item.scene_path)
 	var selected = packed_scene.instantiate() as Item
 	
