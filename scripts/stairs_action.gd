@@ -12,6 +12,11 @@ func perform(_actor:Actor) -> ActionResult:
 	if not stairs:
 		return ActionResult.new(false)
 
+	#出口をのぼったらゲームオーバー画面へ遷移
+	if stairs.resource.direction==StairsResource.Direction.EXIT:
+		if input_direction == StairsResource.Direction.UP:
+			Gameplay.instance.show_gameover()
+
 	#階段の向きと、入力の向きが違ったらキャンセル
 	if stairs.resource.direction != input_direction:
 		return ActionResult.new(false)

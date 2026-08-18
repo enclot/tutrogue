@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cagcfc1dgeci4"]
+
+[ext_resource type="PackedScene" uid="uid://d2gpvqshakcu4" path="res://grid_object.tscn" id="1_cfldh"]
+[ext_resource type="Script" uid="uid://bdedfclwwtjub" path="res://scripts/stairs.gd" id="2_hxjfv"]
+[ext_resource type="Script" uid="uid://cjhhwm3uphmre" path="res://scripts/stairs_resource.gd" id="3_y1ujb"]
+[ext_resource type="Script" uid="uid://dbi2reyfg50wr" path="res://scripts/entity_resource.gd" id="4_yfnyx"]
+[ext_resource type="Texture2D" uid="uid://li6jbbn60vpk" path="res://asset/colored_packed.png" id="5_a30u0"]
+
+[sub_resource type="Resource" id="Resource_3fvsg"]
+script = ExtResource("3_y1ujb")
+direction = 0
+metadata/_custom_type_script = "uid://cjhhwm3uphmre"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvqq5"]
+atlas = ExtResource("5_a30u0")
+region = Rect2(96, 96, 16, 16)
+
+[sub_resource type="Resource" id="Resource_x43ab"]
+script = ExtResource("4_yfnyx")
+entity_name = "Exit Stairs"
+texture = SubResource("AtlasTexture_nvqq5")
+metadata/_custom_type_script = "uid://dbi2reyfg50wr"
+
+[node name="ExitStairs" unique_id=1666315949 groups=["stairs"] instance=ExtResource("1_cfldh")]
+script = ExtResource("2_hxjfv")
+resource = SubResource("Resource_3fvsg")
+entity_resource = SubResource("Resource_x43ab")

@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d32w7hqjeb4ml" path="res://healing_potion.tscn" id="7_j7kpp"]
 [ext_resource type="PackedScene" uid="uid://c02hueoagh3sb" path="res://up_stairs.tscn" id="9_gyffv"]
 [ext_resource type="PackedScene" uid="uid://byv23258gfgw2" path="res://down_stairs.tscn" id="10_1pe0h"]
+[ext_resource type="PackedScene" uid="uid://cagcfc1dgeci4" path="res://exit_stairs.tscn" id="11_1pe0h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rka8t"]
 texture = ExtResource("2_ihfcg")
@@ -1141,3 +1142,6 @@ position = Vector2(32, 16)
 
 [node name="DownStairs" parent="." unique_id=68028 instance=ExtResource("10_1pe0h")]
 position = Vector2(16, 16)
+
+[node name="ExitStairs" parent="." unique_id=748191820 instance=ExtResource("11_1pe0h")]
+position = Vector2(32, 48)
