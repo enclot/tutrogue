@@ -13,8 +13,6 @@ func _ready() -> void:
 		Type.WIN:
 			set_win_message()
 
-#func set_player(_player_scene:PackedScene)->void:
-	#player = _player_scene.instantiate() as Player
 
 func set_dead_message() -> void:
 	label.text = "you died ..."
