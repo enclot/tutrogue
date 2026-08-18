@@ -78,3 +78,13 @@ func load_level_grid_objects(level:BaseLevel) -> void:
 		
 	#playerをデータから復元
 	level.spawn_grid_object(player_scene)
+
+# くだりはoffset==1　くだるほど番号が増える
+func shift_level(offset:int)->void:
+	var current_path = current_level.scene_file_path
+	var parts = current_path.split("_")
+	var num_part = parts[1].split(".")[0]
+	var new_number = int(num_part) + offset
+	var new_path = parts[0] + "_" + str(new_number) + ".tscn"
+	SceneManager.swap_scenes(new_path, self, current_level)
+	save_level_grid_objects(current_level)

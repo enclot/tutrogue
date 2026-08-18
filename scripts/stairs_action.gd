@@ -11,7 +11,7 @@ func perform(_actor:Actor) -> ActionResult:
 		
 	if not stairs:
 		return ActionResult.new(false)
-	
+
 	#階段の向きと、入力の向きが違ったらキャンセル
 	if stairs.resource.direction != input_direction:
 		return ActionResult.new(false)
@@ -19,10 +19,6 @@ func perform(_actor:Actor) -> ActionResult:
 	if _actor is Player:
 		_actor.last_used_stairs_resouce = stairs.resource
 	
-	print("direction=",input_direction)
-	if input_direction == StairsResource.Direction.UP:
-		Gameplay.instance.level1()
-	elif input_direction == StairsResource.Direction.DOWN:
-		Gameplay.instance.level2()
+	Gameplay.instance.shift_level(input_direction)
 
 	return ActionResult.new(true)
