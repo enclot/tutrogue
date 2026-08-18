@@ -1137,7 +1137,7 @@ position = Vector2(32, 32)
 position = Vector2(320, 288)
 
 [node name="DownStairs" parent="." unique_id=297970879 instance=ExtResource("9_ehv2h")]
-position = Vector2(48, 16)
+position = Vector2(16, 32)
 
 [node name="UpStairs" parent="." unique_id=1685613292 instance=ExtResource("10_15wb7")]
-position = Vector2(32, 16)
+position = Vector2(16, 48)

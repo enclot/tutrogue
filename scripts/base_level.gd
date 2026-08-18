@@ -51,3 +51,8 @@ func _perform_action(_action:Action, _actor:Actor) ->bool:
 			
 		current = result.alternative	
 	return true
+
+func spawn_grid_object(_scene:PackedScene)->void:
+	var obj = _scene.instantiate() as GridObject
+	add_child(obj)
+	await obj.tree_entered
