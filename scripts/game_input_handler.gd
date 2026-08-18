@@ -10,6 +10,8 @@ const DIRECTIONS = {
 
 signal action_selected(action:Action)
 signal use_item_requested
+signal drop_item_requested
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed():
@@ -23,6 +25,8 @@ func _input(event: InputEvent) -> void:
 
 		if event.is_action("item_use"):
 			use_item_requested.emit()
+		elif event.is_action("item_drop"):
+			drop_item_requested.emit()
 		elif event.is_action("item_pickup"):
 			action_selected.emit(PickupAction.new())
 		elif Input.is_action_just_pressed("down_stairs"):

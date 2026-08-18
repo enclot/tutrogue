@@ -12,19 +12,44 @@ var input_handler:GameInputHandler:
 	set(value):
 		input_handler = value
 		input_handler.use_item_requested.connect(_on_use_item_requested)
+		input_handler.drop_item_requested.connect(_on_drop_item_requested)
 		input_handler.action_selected.connect(action_selected.emit)
 
 func get_action() -> Action:
 	return await action_selected
 
+func _on_drop_item_requested() -> void:
+	get_tree().paused = true
+
+	var inventory:InventoryComponent = \
+		get_component(InventoryComponent)
+	if inventory:
+		var ui = INVENTORY_UI.instantiate() as InventoryUI	
+		add_child(ui)
+		ui.initialize("drop", inventory.items)
+		var item:EntityResource = await ui.item_selected
+		
+		if item!=null and _drop(item) :
+			# 使用したアイテムをインベントリから削除
+			inventory.remove_item(item)
+		
+	get_tree().paused = false
+
+func _drop(_item:EntityResource)->bool:
+	var packed_scene: PackedScene = load(_item.scene_path)
+	var obj = packed_scene.instantiate() as GridObject
+	obj.grid_position = grid_position
+	get_parent().add_child(obj)
+	return true
+	
 func _on_use_item_requested()->void:
 	get_tree().paused = true
-	var ui = INVENTORY_UI.instantiate() as InventoryUI	
-	add_child(ui)
 	
 	var inventory:InventoryComponent = \
 		get_component(InventoryComponent)
 	if inventory:
+		var ui = INVENTORY_UI.instantiate() as InventoryUI	
+		add_child(ui)
 		ui.initialize("use", inventory.items)
 		var item:EntityResource = await ui.item_selected
 		
@@ -33,6 +58,9 @@ func _on_use_item_requested()->void:
 			inventory.remove_item(item)
 		
 	get_tree().paused = false
+	
+
+		
 	
 func _try_activate(_item:EntityResource)->bool:
 	if not _item:
