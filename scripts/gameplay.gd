@@ -8,6 +8,8 @@ var current_level:BaseLevel
 var player_scene:PackedScene#Playrはすべてのレベルに共通
 var level_data_set:LevelDataSet #レベルのパスがキーのDictionary
 
+var game_win = false
+
 func _ready() -> void:
 	instance = self
 	
@@ -19,17 +21,19 @@ func _ready() -> void:
 	
 #ここが呼ばれるときは_ready()の前
 func _on_level_adding(level:Node)->void:
-	if level is not BaseLevel:
-		return
+	if level is BaseLevel:
+		load_level_grid_objects(level)
+
 	
-	load_level_grid_objects(level)
 
 #ここが呼ばれるときは_ready()が終わった後
 func _on_level_added(level) -> void:
 	if level is BaseLevel:
 		current_level = level
-		
-		
+	elif level is Gameover:
+		if game_win:
+			level.set_win_message()
+					
 func level1():
 	SceneManager.swap_scenes("res://level_1.tscn", self, current_level)
 	save_level_grid_objects(current_level)
@@ -88,3 +92,14 @@ func shift_level(offset:int)->void:
 	var new_path = parts[0] + "_" + str(new_number) + ".tscn"
 	SceneManager.swap_scenes(new_path, self, current_level)
 	save_level_grid_objects(current_level)
+
+func show_gameover() -> void:
+	SceneManager.swap_scenes("res://gameover.tscn", self, current_level)
+	
+	
+	var inventory:InventoryComponent = current_level.player.get_component(InventoryComponent)
+	for item:EntityResource in inventory.items:
+		print(item.entity_name)
+		if item.entity_name == "One Ring":
+			game_win = true
+			return

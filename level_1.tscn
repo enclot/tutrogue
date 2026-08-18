@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c02hueoagh3sb" path="res://up_stairs.tscn" id="9_gyffv"]
 [ext_resource type="PackedScene" uid="uid://byv23258gfgw2" path="res://down_stairs.tscn" id="10_1pe0h"]
 [ext_resource type="PackedScene" uid="uid://cagcfc1dgeci4" path="res://exit_stairs.tscn" id="11_1pe0h"]
+[ext_resource type="PackedScene" uid="uid://ustwfkqil1fu" path="res://one_ring.tscn" id="12_27bay"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rka8t"]
 texture = ExtResource("2_ihfcg")
@@ -1145,3 +1146,6 @@ position = Vector2(16, 16)
 
 [node name="ExitStairs" parent="." unique_id=748191820 instance=ExtResource("11_1pe0h")]
 position = Vector2(32, 48)
+
+[node name="OneRing" parent="." unique_id=1299448090 instance=ExtResource("12_27bay")]
+position = Vector2(16, 48)
