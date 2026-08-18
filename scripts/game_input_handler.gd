@@ -26,9 +26,11 @@ func _input(event: InputEvent) -> void:
 		elif event.is_action("item_pickup"):
 			action_selected.emit(PickupAction.new())
 		elif Input.is_action_just_pressed("down_stairs"):
-			action_selected.emit(StairsAction.new(Stairs.Direction.DOWN))
+			action_selected.emit(
+				StairsAction.new(StairsResource.Direction.DOWN))
 		elif Input.is_action_just_pressed("up_stairs"):
-			action_selected.emit(StairsAction.new(Stairs.Direction.UP))
+			action_selected.emit(StairsAction.new(
+				StairsResource.Direction.UP))
 		elif Input.is_action_just_pressed("wait"):
 			action_selected.emit(MovementAction.new(Vector2i.ZERO))
 			

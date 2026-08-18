@@ -3,7 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://d2gpvqshakcu4" path="res://grid_object.tscn" id="1_eq7mm"]
 [ext_resource type="Script" uid="uid://dbi2reyfg50wr" path="res://scripts/entity_resource.gd" id="2_mv4f1"]
 [ext_resource type="Script" uid="uid://bdedfclwwtjub" path="res://scripts/stairs.gd" id="2_olvw0"]
+[ext_resource type="Script" uid="uid://cjhhwm3uphmre" path="res://scripts/stairs_resource.gd" id="3_8dub5"]
 [ext_resource type="Texture2D" uid="uid://li6jbbn60vpk" path="res://asset/colored_packed.png" id="3_ggdim"]
+
+[sub_resource type="Resource" id="Resource_8dub5"]
+script = ExtResource("3_8dub5")
+direction = 1
+metadata/_custom_type_script = "uid://cjhhwm3uphmre"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mv4f1"]
 atlas = ExtResource("3_ggdim")
@@ -17,6 +23,8 @@ metadata/_custom_type_script = "uid://dbi2reyfg50wr"
 
 [node name="DownStairs" unique_id=1666315949 groups=["stairs"] instance=ExtResource("1_eq7mm")]
 script = ExtResource("2_olvw0")
-direction = 1
-pair = 0
+resource = SubResource("Resource_8dub5")
 entity_resource = SubResource("Resource_ggdim")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1067059689]
+texture = SubResource("AtlasTexture_mv4f1")
