@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cxi50xxlih2on"]
+
+[ext_resource type="Texture2D" uid="uid://c18sr6jh4kw5p" path="res://asset/summer3.png" id="1_ak2if"]
+[ext_resource type="Script" uid="uid://crnwbn8e1ly3i" path="res://scripts/title_screen.gd" id="1_ig5kc"]
+[ext_resource type="FontFile" uid="uid://dc4tq7utawt2q" path="res://asset/Kenney Pixel.ttf" id="3_hafda"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nw6q"]
+bg_color = Color(0.2344329, 0.664706, 0.74301565, 1)
+
+[node name="TitleSceeen" type="CanvasLayer" unique_id=1486326838]
+script = ExtResource("1_ig5kc")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1946204760]
+offset_right = 320.0
+offset_bottom = 320.0
+texture = ExtResource("1_ak2if")
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=1800035657]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -176.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_hafda")
+theme_override_font_sizes/font_size = 60
+text = "Tut Rogue"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="TextureRect" unique_id=180336117]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_hafda")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_2nw6q")
+text = "Press Enter Key"
+horizontal_alignment = 1
