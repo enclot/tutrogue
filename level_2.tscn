@@ -1133,6 +1133,7 @@ script = ExtResource("5_yl73a")
 
 [node name="Player" parent="." unique_id=1737094811 instance=ExtResource("6_xbcdb")]
 position = Vector2(48, 32)
+last_used_stairs_resouce = null
 
 [node name="Skeleton" parent="." unique_id=1666315949 instance=ExtResource("7_s77qv")]
 position = Vector2(96, 32)
@@ -1147,9 +1148,9 @@ position = Vector2(32, 32)
 position = Vector2(320, 288)
 
 [node name="DownStairs" parent="." unique_id=297970879 instance=ExtResource("9_ehv2h")]
-position = Vector2(16, 32)
+position = Vector2(16, 80)
 resource = SubResource("Resource_yl73a")
 
 [node name="UpStairs" parent="." unique_id=1685613292 instance=ExtResource("10_15wb7")]
-position = Vector2(16, 48)
+position = Vector2(48, 80)
 resource = SubResource("Resource_xbcdb")

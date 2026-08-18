@@ -14,6 +14,10 @@ func _ready() -> void:
 		if actor:
 			actor.map = map
 			
+
+	var stairs = _find_stars_postion(player.last_used_stairs_resouce)
+	player.grid_position = stairs.grid_position
+		
 	map.update_visibility(player.grid_position)
 	while true:
 		for node in get_tree().get_nodes_in_group(&"actor"):
@@ -56,3 +60,15 @@ func spawn_grid_object(_scene:PackedScene)->void:
 	var obj = _scene.instantiate() as GridObject
 	add_child(obj)
 	await obj.tree_entered
+	
+
+func _find_stars_postion(_stairs_resource:StairsResource) -> Stairs:
+	#同じペア階段で、のぼってきたときはくだり、
+	#くだってきたときはのぼり階段をさがす
+	var stairs_nodes = get_tree().get_nodes_in_group(&"stairs")
+	for stairs:Stairs in stairs_nodes:
+		if _stairs_resource.pair != stairs.resource.pair:
+			continue
+		if _stairs_resource.direction != stairs.resource.direction:
+			return stairs
+	return null

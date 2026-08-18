@@ -6,6 +6,7 @@ signal action_selected(action: Action)
 const INVENTORY_UI = preload("uid://b3j1v8q5565ry")
 const POSITION_SELECT_UI = preload("uid://coqpmd2j7vcjr")
 
+@export var last_used_stairs_resouce:StairsResource
 
 var input_handler:GameInputHandler:
 	set(value):

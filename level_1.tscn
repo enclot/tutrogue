@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://d32w7hqjeb4ml" path="res://healing_potion.tscn" id="7_j7kpp"]
 [ext_resource type="PackedScene" uid="uid://c02hueoagh3sb" path="res://up_stairs.tscn" id="9_gyffv"]
 [ext_resource type="PackedScene" uid="uid://byv23258gfgw2" path="res://down_stairs.tscn" id="10_1pe0h"]
-[ext_resource type="Script" uid="uid://cjhhwm3uphmre" path="res://scripts/stairs_resource.gd" id="10_27bay"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rka8t"]
 texture = ExtResource("2_ihfcg")
@@ -1102,11 +1101,6 @@ custom_data_layer_1/name = "blocks_vision"
 custom_data_layer_1/type = 1
 sources/0 = SubResource("TileSetAtlasSource_rka8t")
 
-[sub_resource type="Resource" id="Resource_sof0w"]
-script = ExtResource("10_27bay")
-direction = 1
-metadata/_custom_type_script = "uid://cjhhwm3uphmre"
-
 [node name="Level1" type="Node2D" unique_id=1813427395]
 script = ExtResource("1_hn12h")
 
@@ -1144,8 +1138,6 @@ position = Vector2(16, 32)
 
 [node name="UpStairs" parent="." unique_id=2053076274 instance=ExtResource("9_gyffv")]
 position = Vector2(32, 16)
-resource = SubResource("Resource_sof0w")
 
 [node name="DownStairs" parent="." unique_id=68028 instance=ExtResource("10_1pe0h")]
 position = Vector2(16, 16)
-resource = SubResource("Resource_sof0w")

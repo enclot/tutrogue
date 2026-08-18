@@ -2,12 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://d2gpvqshakcu4" path="res://grid_object.tscn" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://di3w8f0wkodik" path="res://scripts/player.gd" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://cjhhwm3uphmre" path="res://scripts/stairs_resource.gd" id="3_b26j0"]
 [ext_resource type="Script" uid="uid://dbi2reyfg50wr" path="res://scripts/entity_resource.gd" id="3_hqtel"]
 [ext_resource type="Texture2D" uid="uid://cp2ifs0svya8c" path="res://asset/monochrome-transparent_packed.png" id="4_sweqy"]
 [ext_resource type="PackedScene" uid="uid://c80c2r1728ggp" path="res://healthbar.tscn" id="5_2hs0m"]
 [ext_resource type="Script" uid="uid://cklp3cb3vpfu6" path="res://scripts/stats_component.gd" id="5_sweqy"]
 [ext_resource type="Script" uid="uid://c0sbkh5lgpd27" path="res://scripts/inventory_component.gd" id="7_1jxqw"]
 [ext_resource type="Resource" uid="uid://kltay7mytc87" path="res://resources/javelin.tres" id="8_dw050"]
+
+[sub_resource type="Resource" id="Resource_n7ghd"]
+script = ExtResource("3_b26j0")
+metadata/_custom_type_script = "uid://cjhhwm3uphmre"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
 atlas = ExtResource("4_sweqy")
@@ -22,6 +27,7 @@ metadata/_custom_type_script = "uid://dbi2reyfg50wr"
 [node name="Player" unique_id=1666315949 groups=["actor", "player", "target"] instance=ExtResource("1_4flbx")]
 z_index = 10
 script = ExtResource("2_onrkg")
+last_used_stairs_resouce = SubResource("Resource_n7ghd")
 entity_resource = SubResource("Resource_1jxqw")
 
 [node name="Sprite2D" parent="." index="0" unique_id=1067059689]

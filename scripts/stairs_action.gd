@@ -16,6 +16,9 @@ func perform(_actor:Actor) -> ActionResult:
 	if stairs.resource.direction != input_direction:
 		return ActionResult.new(false)
 	
+	if _actor is Player:
+		_actor.last_used_stairs_resouce = stairs.resource
+	
 	print("direction=",input_direction)
 	if input_direction == StairsResource.Direction.UP:
 		Gameplay.instance.level1()
