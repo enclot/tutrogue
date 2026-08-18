@@ -58,26 +58,23 @@ func load_level_grid_objects(level:BaseLevel) -> void:
 
 	var is_first_visit:bool = \
 		not level_data_set.levels.has(level.scene_file_path)
-		
-	# 全部消す
+	
+	# 初めてじゃない場合は全部消す　初めての時はプレイヤーだけ消す
 	for child in level.get_children():
 		if child.is_in_group(&"grid_object"):
-			# 初めて訪れた場合はプレイヤー以外はそのまま
 			if is_first_visit:
 				if not child.is_in_group(&"player"):
 					continue
 			#すぐツリーから消しておかないとダブってるときがある
 			level.remove_child(child)
 			child.queue_free()
-
+	
+	#初めてじゃない場合はほかを復元
+	if not is_first_visit:
+		var level_grid_object_data:LevelGridObjectData = \
+			level_data_set.levels[level.scene_file_path]  
+		for obj in level_grid_object_data.grid_object_scenes:
+			level.spawn_grid_object(obj)
+		
 	#playerをデータから復元
 	level.spawn_grid_object(player_scene)
-	
-	if is_first_visit:
-		return
-		
-	#ほかを復元
-	var level_grid_object_data:LevelGridObjectData = \
-		level_data_set.levels[level.scene_file_path]  
-	for obj in level_grid_object_data.grid_object_scenes:
-		level.spawn_grid_object(obj)
