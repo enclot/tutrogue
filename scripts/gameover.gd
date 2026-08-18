@@ -3,6 +3,22 @@ extends CanvasLayer
 
 @onready var label: Label = $TextureRect/Label
 
+enum Type {DIED, WIN, LOSE}
+var type = Type.LOSE
+
+func _ready() -> void:
+	match type:
+		Type.DIED:
+			set_dead_message()
+		Type.WIN:
+			set_win_message()
+
+#func set_player(_player_scene:PackedScene)->void:
+	#player = _player_scene.instantiate() as Player
+
+func set_dead_message() -> void:
+	label.text = "you died ..."
+
 func set_win_message()->void:
 	label.text = "Conguratulations!!\nYou brought back the One Ring"
 
