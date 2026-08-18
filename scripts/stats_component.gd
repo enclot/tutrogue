@@ -24,10 +24,7 @@ func _die() -> void:
 # ダメージを受ける側
 func take_damage(damage:int) -> void:
 	hp -= damage
-	actor.sprite_2d.self_modulate = Color.RED
-	await get_tree().create_timer(0.1).timeout
-	if is_alive():
-		actor.sprite_2d.self_modulate = Color.WHITE
+	actor.take_damage()
 		
 # 回復
 func heal(amount:int) -> void:

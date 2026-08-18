@@ -17,8 +17,8 @@ func perform(attacker:Actor)->ActionResult:
 		attacker.get_component(StatsComponent)
 	if target_stats and attacker_stats:
 		target_stats.take_damage(attacker_stats.power)
-		#target_stats.hp -= attacker_stats.power
+		
 		print("%s is damaged. current HP is %d"%[
 			target_actor.entity_name, target_stats.hp])
-			
+		attacker.melee(target_actor.grid_position - attacker.grid_position)	
 	return ActionResult.new(true)
