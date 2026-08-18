@@ -22,6 +22,10 @@ texture = SubResource("AtlasTexture_nvqq5")
 metadata/_custom_type_script = "uid://dbi2reyfg50wr"
 
 [node name="ExitStairs" unique_id=1666315949 groups=["stairs"] instance=ExtResource("1_cfldh")]
+z_index = -1
 script = ExtResource("2_hxjfv")
 resource = SubResource("Resource_3fvsg")
 entity_resource = SubResource("Resource_x43ab")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1067059689]
+texture = SubResource("AtlasTexture_nvqq5")
