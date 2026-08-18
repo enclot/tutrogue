@@ -61,4 +61,6 @@ func _try_activate(_item:EntityResource)->bool:
 		return true
 	return false
 	
-	
+func died() -> void:
+	print("player died")
+	Gameplay.instance.show_gameover()
