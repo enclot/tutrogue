@@ -1,8 +1,8 @@
 class_name PickupAction extends Action
 
 func perform(_actor:Actor) -> ActionResult:
-	var objects = _actor.map.get_grid_objects_at_location(
-		_actor.grid_position)
+	var objects = \
+		_actor.map.get_grid_objects_at_location(_actor.grid_position)
 	for obj in objects:
 		if obj.is_in_group(&"pickup"):
 			return _pickup(_actor, obj)
