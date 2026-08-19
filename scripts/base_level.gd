@@ -66,9 +66,14 @@ func _find_stars_postion(_stairs_resource:StairsResource) -> Stairs:
 	#同じペア階段で、のぼってきたときはくだり、
 	#くだってきたときはのぼり階段をさがす
 	var stairs_nodes = get_tree().get_nodes_in_group(&"stairs")
-	for stairs:Stairs in stairs_nodes:
-		if _stairs_resource.pair != stairs.resource.pair:
-			continue
-		if _stairs_resource.direction != stairs.resource.direction:
-			return stairs
+	if _stairs_resource.direction != StairsResource.Direction.EXIT:
+		for stairs:Stairs in stairs_nodes:
+			if _stairs_resource.pair != stairs.resource.pair:
+				continue
+			if _stairs_resource.direction != stairs.resource.direction:
+				return stairs
+	else:
+		for stairs:Stairs in stairs_nodes:
+			if stairs.resource.direction == StairsResource.Direction.EXIT:
+				return stairs		
 	return null
