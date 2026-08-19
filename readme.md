@@ -28,3 +28,11 @@ BOOTHにて、本を販売中です（Japanese）
 
 こちらもよろしくお願いします。
 
+
+## Asset
+
+https://kenney.nl/
+
+https://free-game-assets.itch.io/free-summer-pixel-art-backgrounds
+
+Thank you very much.
