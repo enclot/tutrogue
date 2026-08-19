@@ -2,11 +2,16 @@
 
 A traditional roguelike Game example made by Godot 4.6.3.
 
+Please refer to the revised branch, as it contains the latest changes.
+
 
 
 Godot4.6.3を使って作成されました。
 
 伝統的ローグライクのサンプルです
+
+本を改訂しました。revisedブランチの方が新しいです
+
 
 ## Demo
 
