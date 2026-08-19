@@ -20,5 +20,6 @@ func perform(attacker:Actor)->ActionResult:
 		
 		print("%s is damaged. current HP is %d"%[
 			target_actor.entity_name, target_stats.hp])
-		attacker.melee(target_actor.grid_position - attacker.grid_position)	
+		attacker.melee(
+			target_actor.grid_position - attacker.grid_position)	
 	return ActionResult.new(true)
